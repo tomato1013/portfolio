@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陳士杰 Jacky Chen ｜ AI 解決方案 × 商業落地</title>
+<meta name="description" content="企管背景的 AI 解決方案實作者：能把商業問題端到端做成可落地的 AI 方案，並用成本與工時衡量它。">
+<style>
+  :root{
+    --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd; --sky-300:#7dd3fc;
+    --sky-400:#38bdf8; --sky-500:#0ea5e9; --sky-600:#0284c7; --sky-700:#0369a1; --sky-800:#075985;
+    --slate-900:#0f172a; --slate-700:#334155; --slate-600:#475569; --slate-500:#64748b;
+    --slate-400:#94a3b8; --slate-300:#cbd5e1; --slate-200:#e2e8f0; --slate-100:#f1f5f9;
+    --biz:#0e7490; --biz-soft:#ecfeff; --biz-border:#a5f3fc;
+    --bg:#ffffff; --maxw:1080px;
+    --shadow:0 1px 3px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.05);
+    --shadow-lg:0 12px 40px rgba(2,132,199,.12);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+    color:var(--slate-900);background:var(--bg);line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--sky-700);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:84px 0;border-top:1px solid var(--slate-100)}
+  h2.sec-title{font-size:1.9rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;color:var(--slate-900)}
+  h2.sec-title .accent{color:var(--sky-600)}
+  .sec-lead{color:var(--slate-600);max-width:60ch;margin-bottom:40px;font-size:1.02rem}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--slate-200)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:1.05rem;letter-spacing:-.3px;cursor:pointer;color:var(--slate-900)}
+  .brand .dot{color:var(--sky-500)}
+  .nav ul{display:flex;gap:4px;list-style:none;flex-wrap:wrap}
+  .nav ul a{display:block;padding:8px 12px;border-radius:8px;font-size:.92rem;color:var(--slate-600);font-weight:500;transition:.15s}
+  .nav ul a:hover{background:var(--sky-50);color:var(--sky-700)}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--slate-700)}
+
+  /* HERO */
+  .hero{background:linear-gradient(180deg,var(--sky-50) 0%,#ffffff 100%);border-top:none;padding-top:72px}
+  .hero .eyebrow{display:inline-block;background:var(--sky-100);color:var(--sky-700);font-weight:700;font-size:.82rem;padding:6px 14px;border-radius:999px;letter-spacing:.5px;margin-bottom:22px}
+  .hero h1{font-size:2.5rem;line-height:1.3;font-weight:800;letter-spacing:-1px;margin-bottom:20px}
+  .hero h1 .hl{background:linear-gradient(120deg,var(--sky-500),var(--sky-700));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{font-size:1.12rem;color:var(--slate-600);max-width:62ch;margin-bottom:36px}
+  .hero-top{display:flex;gap:44px;align-items:center;margin-bottom:8px}
+  .hero-left{flex:1.65;min-width:0}
+  .hero-left .sub{margin-bottom:0}
+  .hero-art{flex:1;display:flex;justify-content:center;max-width:340px}
+  .hero-art svg{width:100%;height:auto}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+  .stat{background:#fff;border:1px solid var(--slate-200);border-radius:var(--r);padding:24px;box-shadow:var(--shadow)}
+  .stat .num{font-size:2.1rem;font-weight:800;color:var(--sky-600);letter-spacing:-1px;line-height:1.1}
+  .stat .label{font-size:.92rem;color:var(--slate-600);margin-top:8px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.96rem;cursor:pointer;border:1px solid transparent;transition:.15s}
+  .btn-primary{background:var(--sky-600);color:#fff}
+  .btn-primary:hover{background:var(--sky-700)}
+  .btn-ghost{background:#fff;color:var(--sky-700);border-color:var(--sky-300)}
+  .btn-ghost:hover{background:var(--sky-50)}
+
+  /* METHOD */
+  .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .principle{background:#fff;border:1px solid var(--slate-200);border-left:4px solid var(--sky-500);border-radius:12px;padding:24px}
+  .principle .n{font-size:.8rem;font-weight:800;color:var(--sky-500);letter-spacing:1px}
+  .principle h3{font-size:1.12rem;margin:6px 0 8px}
+  .principle p{color:var(--slate-600);font-size:.96rem}
+  .about-prose{max-width:none}
+  .about-prose p{color:var(--slate-700);font-size:1.04rem;margin-bottom:16px}
+  .edu-line{margin-top:8px;font-weight:600;color:var(--sky-700);font-size:.98rem}
+
+  /* PILLAR TABS */
+  .tabs{display:inline-flex;background:var(--slate-100);border-radius:12px;padding:5px;margin-bottom:36px;gap:4px}
+  .tab{padding:10px 22px;border-radius:9px;border:none;background:none;font-weight:600;font-size:.96rem;color:var(--slate-600);cursor:pointer;transition:.15s;font-family:inherit}
+  .tab.active{background:#fff;color:var(--sky-700);box-shadow:var(--shadow)}
+  .pillar{display:none}
+  .pillar.show{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* PROJECT CARDS */
+  .card{background:#fff;border:1px solid var(--slate-200);border-radius:var(--r);margin-bottom:18px;overflow:hidden;transition:.2s}
+  .card:hover{box-shadow:var(--shadow-lg);border-color:var(--sky-200)}
+  .card-head{display:flex;align-items:flex-start;gap:16px;padding:24px 26px;cursor:pointer}
+  .card-idx{flex:none;width:34px;height:34px;border-radius:9px;background:var(--sky-50);color:var(--sky-600);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .card-head .ht{flex:1}
+  .card-head h3{font-size:1.22rem;font-weight:700;margin-bottom:4px}
+  .card-head .one{color:var(--slate-600);font-size:.97rem}
+  .chev{flex:none;color:var(--slate-400);transition:.2s;margin-top:4px}
+  .card.open .chev{transform:rotate(180deg)}
+  .card-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .card-inner{padding:0 26px 26px;border-top:1px solid var(--slate-100)}
+  .card-inner .blk{margin-top:18px}
+  .card-inner .blk .k{font-size:.82rem;font-weight:800;letter-spacing:.5px;color:var(--sky-600);text-transform:uppercase;margin-bottom:6px}
+  .card-inner .blk p,.card-inner .blk li{color:var(--slate-700);font-size:.97rem}
+  .card-inner .blk ul{padding-left:20px}
+  .card-inner .blk li{margin-bottom:5px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .tag{background:var(--sky-50);color:var(--sky-700);font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--sky-100)}
+  .note{font-size:.84rem;color:var(--slate-400);margin-top:14px;font-style:italic}
+  .src-link{display:inline-block;margin-top:18px;font-size:.9rem;font-weight:600;color:var(--sky-700);border:1px solid var(--sky-300);padding:7px 16px;border-radius:9px;transition:.15s}
+  .src-link:hover{background:var(--sky-50)}
+  figure.diagram{margin:20px 0 4px;background:var(--sky-50);border:1px solid var(--sky-100);border-radius:12px;padding:18px;overflow-x:auto}
+  figure.diagram svg{display:block;margin:0 auto;max-width:100%;height:auto}
+  figure.diagram figcaption{text-align:center;font-size:.82rem;color:var(--slate-500);margin-top:10px}
+
+  /* BUSINESS pillar accent */
+  #pillar-biz .card{border-left:4px solid var(--biz)}
+  #pillar-biz .card-idx{background:var(--biz-soft);color:var(--biz)}
+  #pillar-biz .blk .k{color:var(--biz)}
+  #pillar-biz .tag{background:var(--biz-soft);color:var(--biz);border-color:var(--biz-border)}
+  .roi-band{background:linear-gradient(120deg,var(--biz-soft),var(--sky-50));border:1px solid var(--biz-border);border-radius:var(--r);padding:28px;margin-top:8px}
+  .roi-band h3{font-size:1.15rem;margin-bottom:18px;color:var(--biz)}
+  .roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .roi-item .rk{font-weight:700;color:var(--slate-900);margin-bottom:4px;font-size:.98rem}
+  .roi-item .rv{color:var(--slate-600);font-size:.92rem}
+
+  /* SKILL TREE */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .skill-cat{background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:22px}
+  .skill-cat h3{font-size:1.05rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .skill-cat h3 .badge{font-size:.72rem;font-weight:700;background:var(--sky-100);color:var(--sky-700);padding:3px 9px;border-radius:999px}
+  .skill-cat.core{border-color:var(--sky-300);background:linear-gradient(180deg,var(--sky-50),#fff)}
+  .skill-row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--slate-100);font-size:.93rem}
+  .skill-row:last-child{border-bottom:none}
+  .lv{display:inline-block;font-size:.76rem;font-weight:700;padding:3px 11px;border-radius:999px;line-height:1.4}
+  .skill-row .lv{flex:none}
+  .lv-3{background:#0284c7;color:#fff}
+  .lv-2{background:var(--sky-100);color:var(--sky-700)}
+  .lv-1{background:var(--slate-100);color:var(--slate-500)}
+  .certs{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .cert{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:16px 20px;flex:1;min-width:240px}
+  .cert .ci{flex:none;width:40px;height:40px;border-radius:10px;background:var(--sky-50);color:var(--sky-600);display:flex;align-items:center;justify-content:center;font-weight:800}
+  .cert .ct{font-weight:700;font-size:.95rem}
+  .cert .cs{font-size:.82rem;color:var(--slate-500)}
+  .lv-legend{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:.86rem;color:var(--slate-500);margin-bottom:34px}
+  .lv-legend>span{display:inline-flex;align-items:center;gap:7px}
+  .disclaimer{font-size:.82rem;color:var(--slate-400);margin-top:14px;max-width:70ch}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--slate-200)}
+  .tl-item{position:relative;margin-bottom:28px}
+  .tl-item::before{content:"";position:absolute;left:-28px;top:6px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--sky-500)}
+  .tl-item .role{font-weight:700;font-size:1.08rem}
+  .tl-item .meta{color:var(--sky-700);font-size:.9rem;font-weight:600;margin:2px 0 6px}
+  .tl-item p{color:var(--slate-600);font-size:.96rem}
+
+  /* ABOUT / CONTACT */
+  .about-card{background:linear-gradient(135deg,var(--sky-600),var(--sky-800));color:#fff;border-radius:18px;padding:44px}
+  .about-card h2{font-size:1.7rem;margin-bottom:18px;color:#fff}
+  .about-card p{color:rgba(255,255,255,.92);margin-bottom:14px;max-width:66ch}
+  .contact-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+  .contact-row a{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25);padding:11px 20px;border-radius:10px;font-weight:600;font-size:.95rem;transition:.15s}
+  .contact-row a:hover{background:rgba(255,255,255,.24)}
+  .edu{margin-top:18px;font-size:.95rem;color:rgba(255,255,255,.85)}
+
+  footer{padding:30px 0;text-align:center;color:var(--slate-400);font-size:.85rem;border-top:1px solid var(--slate-100)}
+
+  /* back to top */
+  #toTop{position:fixed;right:24px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--sky-600);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow-lg);font-size:1.2rem;opacity:0;pointer-events:none;transition:.25s;z-index:40}
+  #toTop.show{opacity:1;pointer-events:auto}
+
+  @media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    header.nav,#toTop,.nav-toggle,.cta-row,.tabs{display:none!important}
+    html{scroll-padding-top:0}
+    section{padding:24px 0;border-top:1px solid var(--slate-200);break-inside:avoid}
+    .hero{padding-top:20px}
+    .pillar{display:block!important}
+    .pillar#pillar-biz{margin-top:18px}
+    .card{break-inside:avoid;box-shadow:none}
+    .card-body{max-height:none!important;overflow:visible!important}
+    .card .chev{display:none}
+    figure.diagram{break-inside:avoid}
+    .about-card{break-inside:avoid}
+    a[href^="mailto"]{color:#fff}
+    .hero h1 .hl{-webkit-text-fill-color:#0369a1;color:#0369a1;background:none}
+  }
+  @media(max-width:780px){
+    .nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--slate-200);padding:8px 16px}
+    .nav ul.open{display:flex}
+    .nav-toggle{display:block}
+    .hero h1{font-size:2.1rem}
+    .hero-top{flex-direction:column;gap:0}
+    .hero-art{display:none}
+    .stats,.principles,.skill-grid,.roi-grid{grid-template-columns:1fr}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap">
+    <div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">陳士杰<span class="dot">.</span>Jacky</div>
+    <button class="nav-toggle" aria-label="選單" onclick="document.getElementById('navmenu').classList.toggle('open')">☰</button>
+    <ul id="navmenu">
+      <li><a href="#hero">定位</a></li>
+      <li><a href="#about">關於我</a></li>
+      <li><a href="#work" onclick="setPillar('eng')">工程落地</a></li>
+      <li><a href="#work" onclick="setPillar('biz')">商業策略</a></li>
+      <li><a href="#skills">能力</a></li>
+      <li><a href="#exp">經歷</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="hero-left">
+        <h1>在商業與技術之間，<br><span class="hl">把問題做成可落地的 AI 方案</span></h1>
+        <p class="sub">企管系背景，能獨立完成從資料、模型到後端串接的 AI PoC，並用商業價值衡量每一個決策。擅長在商業與技術之間翻譯，推動專案真正落地。</p>
+      </div>
+      <div class="hero-art" aria-hidden="false">
+        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="從商業問題到可落地方案的端到端流程示意">
+          <defs>
+            <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#f0f9ff"/></linearGradient>
+            <marker id="ha" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#38bdf8"/></marker>
+          </defs>
+          <rect x="6" y="6" width="388" height="348" rx="26" fill="url(#hg)"/>
+          <circle cx="350" cy="48" r="6" fill="#bae6fd"/><circle cx="40" cy="320" r="5" fill="#bae6fd"/>
+          <path d="M150,64 C232,74 218,112 205,134" fill="none" stroke="#7dd3fc" stroke-width="2.5" marker-end="url(#ha)"/>
+          <path d="M200,168 C150,182 165,206 178,226" fill="none" stroke="#7dd3fc" stroke-width="2.5" marker-end="url(#ha)"/>
+          <path d="M150,248 C232,258 218,296 205,316" fill="none" stroke="#7dd3fc" stroke-width="2.5" marker-end="url(#ha)"/>
+          <g>
+            <rect x="36" y="40" width="150" height="48" rx="13" fill="#fff" stroke="#7dd3fc" stroke-width="2"/>
+            <text x="111" y="70" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">商業問題</text>
+            <rect x="200" y="120" width="150" height="48" rx="13" fill="#fff" stroke="#7dd3fc" stroke-width="2"/>
+            <text x="275" y="150" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">資料蒐集、清洗</text>
+            <rect x="36" y="200" width="150" height="48" rx="13" fill="#fff" stroke="#7dd3fc" stroke-width="2"/>
+            <text x="111" y="230" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">解方設計、取捨</text>
+            <rect x="200" y="280" width="160" height="52" rx="14" fill="#0284c7"/>
+            <text x="280" y="312" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">可運行 PoC</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">8 天</div><div class="label">獨立完成並交付一套產線防錯系統 PoC（工作天）</div></div>
+      <div class="stat"><div class="num">−73%</div><div class="label">將即時影像稽核的 LLM 推論成本，較原方案降低約七成</div></div>
+      <div class="stat"><div class="num">1,538 萬</div><div class="label">工業圖檔物件自動化解析，4 分鐘完成、捕獲率 99.7%</div></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#work" onclick="setPillar('eng')">看工程落地 ▸</a>
+      <a class="btn btn-ghost" href="#work" onclick="setPillar('biz')">看商業策略 ▸</a>
+      <a class="btn btn-ghost" href="#contact">聯絡我 ▸</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <h2 class="sec-title">關於我</h2>
+    <p class="sec-lead">企業管理學系背景，現為 AI 解決方案方向的工程實習生。</p>
+    <div class="about-prose">
+      <p>我的位置不在「最強的工程師」，也不在「只談策略的人」，而是兩者之間那座橋：能把一個模糊的商業問題，端到端做成可落地的 AI 方案，並且習慣用成本與工時去衡量它值不值得。</p>
+      <p>從資料清洗、模型導入到後端 API 串接，能獨立跑完一輪；而企管的訓練，讓動手之前會先問「這個問題真正的瓶頸在哪、AI 是不是對的解」。</p>
+      <p>正在尋找能把這套跨域能力用上的位置——在推動 AI 轉型、為各個職能導入 AI 以提升效率的團隊裡，當那個能在商業與技術之間翻譯、並讓專案真正落地的人。</p>
+      <div class="edu-line">🎓 國立中央大學 ・ 企業管理學系</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <h2 class="sec-title">作品 — <span class="accent">工程落地 × 商業策略</span></h2>
+    <p class="sec-lead">兩種能力撐起同一個定位：一邊是把方案做出來的工程實作，一邊是動手前把問題想清楚的商業判斷。</p>
+    <div class="tabs">
+      <button class="tab active" id="tab-eng" onclick="setPillar('eng')">工程落地</button>
+      <button class="tab" id="tab-biz" onclick="setPillar('biz')">商業策略</button>
+    </div>
+
+    <!-- PILLAR: ENGINEERING -->
+    <div class="pillar show" id="pillar-eng">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">1</div>
+          <div class="ht"><h3>智慧驛站包裹出庫稽核系統</h3><div class="one">以視覺語言模型取代人工客服的取貨稽核判斷，並在客戶反映成本後，透過模型替換與提示工程把推論成本降約七成。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">痛點</div><p>無人取貨站要確認「取貨者有沒有真的到掃描儀掃描才離開」，原本仰賴人工客服盯著畫面判斷，難以規模化；而真實人流的動線與遮擋，也讓純規則難以涵蓋。</p></div>
+          <div class="blk"><div class="k">方案</div><p>先以 Gemini 視覺語言模型搭配電子圍籬兩階段狀態機，自動完成判斷、取代人工客服——Stage 1 在貨架圍籬偵測取貨、Stage 2 在掃描儀圍籬偵測掃描，物件偵測抓出人的座標後自寫座標碰撞判定，再交由 VLM 做語意確認。客戶反映 API 成本偏高後，改用 Qwen-VL，重新進行提示工程並以 45 個場景重測，綜合成本與成效選出最適模型。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 165" role="img" aria-label="兩階段狀態機流程圖">
+              <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="14" y="60" width="120" height="50" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="74" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Stage 1</text>
+              <text x="74" y="98" text-anchor="middle" font-size="10" fill="#475569">貨架・取貨偵測</text>
+              <text x="164" y="78" text-anchor="middle" font-size="9" fill="#0284c7">人入貨架圍籬</text>
+              <line x1="138" y1="85" x2="190" y2="85" stroke="#0284c7" stroke-width="2" marker-end="url(#ar)"/>
+              <rect x="194" y="60" width="130" height="50" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+              <text x="259" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">VLM 語意確認</text>
+              <text x="259" y="98" text-anchor="middle" font-size="10" fill="#475569">OD 座標 + 碰撞</text>
+              <text x="354" y="78" text-anchor="middle" font-size="9" fill="#0284c7">確認取貨</text>
+              <line x1="328" y1="85" x2="380" y2="85" stroke="#0284c7" stroke-width="2" marker-end="url(#ar)"/>
+              <rect x="384" y="60" width="130" height="50" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/>
+              <text x="449" y="82" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Stage 2</text>
+              <text x="449" y="98" text-anchor="middle" font-size="10" fill="#475569">掃描儀・裁切聚焦</text>
+              <text x="542" y="78" text-anchor="middle" font-size="9" fill="#0284c7">確認掃描</text>
+              <line x1="518" y1="85" x2="566" y2="85" stroke="#0284c7" stroke-width="2" marker-end="url(#ar)"/>
+              <rect x="568" y="65" width="58" height="40" rx="10" fill="#0284c7"/>
+              <text x="597" y="89" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">完成</text>
+              <line x1="449" y1="110" x2="449" y2="128" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <text x="449" y="142" text-anchor="middle" font-size="9.5" fill="#94a3b8">語音聲紋＝VLM／網路異常時的客服輔助備援</text>
+            </svg>
+            <figcaption>兩階段狀態機 + OD／VLM 雙層判定，標註各狀態切換條件</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li><b>成本優化</b>：把 VLM 換成輕量 8B 模型，並在 Stage 2 先裁切出掃描儀區域，讓小模型聚焦小物件、解決解析度不足——更準且更省。</li>
+            <li><b>穩定度</b>：監視器視角下人物偵測會斷續，加入「允許漏抓不中斷計時」的容錯與 LLM 冷卻機制，避免重複觸發。</li>
+            <li><b>備援設計</b>：另實作語音聲紋比對，定位為 VLM 故障或網路異常時，輔助現場客服判斷的備援路徑。</li>
+          </ul></div>
+          <div class="blk"><div class="k">商業成果</div><p>單筆交易推論成本約 TWD 0.0035；換用輕量模型後較原 Gemini 方案約降 73%。在 45 個有效測試場景上完成驗證並產出測試報告。</p></div>
+          <div class="tags"><span class="tag">VLM</span><span class="tag">狀態機</span><span class="tag">成本優化</span><span class="tag">邊緣影像</span></div>
+          <a class="src-link" data-repo-card="retail" href="#">原始碼 ▸</a>
+        </div></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">2</div>
+          <div class="ht"><h3>合約風險分析工具</h3><div class="one">先做模型選型方法論，再用「快模型全文 + 本機條號回填」把大型合約分析從分鐘級且不穩，壓到 20–60 秒可用。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">痛點</div><p>法務人員判定合約風險時，得逐條讀完動輒五萬字的合約，耗時又容易遺漏；而把整份合約一次送進分析服務，又會撞到約 100 秒的閘道逾時（504），模型也常把風險條款的條號標錯位置、影響可信度。</p></div>
+          <div class="blk"><div class="k">方案</div><p>系統性評測 10 個大型語言模型在「全文單次」與「分段彙整」兩種策略下的表現，整理時間、條號命中與風險等級分佈，據此選出最佳解：快模型全文單次 + 逾時自動重試，搭配純本機的「條號回填校驗」。前端是一頁風險儀表板。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 120" role="img" aria-label="合約分析資料流">
+              <defs><marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="8" y="40" width="96" height="44" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="56" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">上傳合約</text><text x="56" y="75" text-anchor="middle" font-size="9" fill="#475569">PDF/Word 抽文字</text>
+              <line x1="106" y1="62" x2="142" y2="62" stroke="#0284c7" stroke-width="2" marker-end="url(#ar2)"/>
+              <rect x="144" y="40" width="96" height="44" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="192" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">本機代理</text><text x="192" y="75" text-anchor="middle" font-size="9" fill="#475569">CORS proxy</text>
+              <line x1="242" y1="62" x2="278" y2="62" stroke="#0284c7" stroke-width="2" marker-end="url(#ar2)"/>
+              <rect x="280" y="40" width="110" height="44" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="335" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">全文單次呼叫</text><text x="335" y="75" text-anchor="middle" font-size="9" fill="#475569">逾時自動重試</text>
+              <line x1="392" y1="62" x2="428" y2="62" stroke="#0284c7" stroke-width="2" marker-end="url(#ar2)"/>
+              <rect x="430" y="40" width="104" height="44" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="482" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">條號回填</text><text x="482" y="75" text-anchor="middle" font-size="9" fill="#475569">本機 n-gram・零成本</text>
+              <line x1="536" y1="62" x2="566" y2="62" stroke="#0284c7" stroke-width="2" marker-end="url(#ar2)"/>
+              <rect x="568" y="44" width="64" height="36" rx="9" fill="#0284c7"/><text x="600" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">儀表板</text>
+            </svg>
+            <figcaption>資料流：上傳 → 代理 → 全文+重試 → 條號回填 → 儀表板</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li><b>用數據說話</b>：證明快模型全文（20–60 秒）優於慢模型分段（3.5–23 分鐘，且彙整步驟必逾時導致風險等級偏高）。</li>
+            <li><b>條號回填</b>：用加權字元 n-gram 把模型自報的條號回原文比對，只有在別條證據明顯較強時才覆寫，零 API 成本、不破壞正確項，實測 10/10 修正。</li>
+            <li>自建本機 CORS 代理，解決瀏覽器無法直連後端的問題。</li>
+          </ul></div>
+          <div class="blk"><div class="k">商業成果</div><p>把整份動輒五萬字的合約，壓縮成標明風險條文位置的表格摘要，讓法務能直接跳到風險條文查看，大幅降低逐條閱讀的時間；條號校驗純本機、不增加任何 API 費用。</p></div>
+          <div class="tags"><span class="tag">LLM 選型</span><span class="tag">RAG</span><span class="tag">n-gram 校驗</span><span class="tag">前端儀表板</span></div>
+          <a class="src-link" data-repo-card="contract" href="#">原始碼 ▸</a>
+        </div></div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">3</div>
+          <div class="ht"><h3>Telegram 產品 Bug 回報機器人</h3><div class="one">把分散的 Bug 回報收斂成一條閉環——引導式填單、自動歸檔、分流通知、結案回拋，並附完整交接文件。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">痛點</div><p>測試人員回報 Bug 散落在訊息、信件與表格之間；工程端追蹤狀態、回拋通知給原回報者的環節經常斷裂。</p></div>
+          <div class="blk"><div class="k">方案</div><p>用有限狀態機（FSM）做引導式填單，逐步收集回報；自動依產品分流寫入 Google Sheet、圖片上傳圖床、推播工程群組並附上該產品負責人；工程端更新狀態後，由 Apps Script 監聽變更、自動回拋通知原回報者，形成完整閉環。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 185" role="img" aria-label="回報閉環流程">
+              <defs><marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="20" y="22" width="120" height="46" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="80" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">測試人員</text><text x="80" y="59" text-anchor="middle" font-size="9" fill="#475569">Telegram 填單</text>
+              <line x1="140" y1="45" x2="186" y2="45" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <rect x="190" y="22" width="120" height="46" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="250" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Bot（FSM）</text><text x="250" y="59" text-anchor="middle" font-size="9" fill="#475569">引導式・分流</text>
+              <line x1="310" y1="36" x2="356" y2="30" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <line x1="310" y1="54" x2="356" y2="60" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <rect x="360" y="14" width="130" height="26" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="1.6"/><text x="425" y="31" text-anchor="middle" font-size="10" fill="#0f172a">圖片 → ImgBB</text>
+              <rect x="360" y="50" width="130" height="26" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="1.6"/><text x="425" y="67" text-anchor="middle" font-size="10" fill="#0f172a">寫入 Google Sheet</text>
+              <line x1="490" y1="45" x2="528" y2="45" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <rect x="510" y="22" width="120" height="46" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="570" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">工程群組</text><text x="570" y="59" text-anchor="middle" font-size="9" fill="#475569">通知 + 負責人</text>
+              <path d="M570,68 L570,128 L80,128 L80,72" fill="none" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ar3)"/>
+              <rect x="210" y="116" width="220" height="24" rx="6" fill="#f0f9ff"/><text x="320" y="132" text-anchor="middle" font-size="9.5" fill="#0369a1">Apps Script 監聽結案 → 自動回拋通知原回報者</text>
+            </svg>
+            <figcaption>回報 → 歸檔 → 通知 → 結案回拋</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li><b>config-driven 設計</b>：產品、模塊、負責人、白名單都放在設定分頁，新增產品免改程式碼，並支援 <code>/reload</code> 不重啟熱重載。</li>
+            <li><b>權限取捨</b>：圖片因雲端硬碟權限政策卡關改用圖床；通知腳本因簡單觸發器無權呼叫外部請求，改用安裝式觸發器。</li>
+            <li><b>關注點分離（SoC）</b>：程式依設定、資料模型、服務與對話流程分為四層，維護時定位明確。</li>
+          </ul></div>
+          <div class="blk"><div class="k">商業成果</div><p>一個完整可交接的產品：附系統架構圖、維護手冊、從零建置教學、v1→v2 演進紀錄與已知限制清單，接手者能直接上手。</p></div>
+          <div class="tags"><span class="tag">FSM</span><span class="tag">自動化</span><span class="tag">Google Sheet / Apps Script</span><span class="tag">可交接產品</span></div>
+          <a class="src-link" data-repo-card="tgbot" href="#">原始碼 ▸</a>
+        </div></div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">4</div>
+          <div class="ht"><h3>產線螺絲組裝防錯系統</h3><div class="one">8 個工作天全流程獨立交付的產線防錯 PoC，並沉澱出一套可複用於工業偵錯的 FSM 範例與 SOP。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">痛點</div><p>螺絲組裝目前沒有自動檢查機制，一旦漏放或錯放，整個料盤就報廢，是良率與成本的痛點；而實體廠房相機會物理位移、手部會遮擋料盤，固定座標的判定方式很快就會失準。導入 AI 與自動化偵錯，可即時攔截錯誤、提升良率並降低報廢花費。</p></div>
+          <div class="blk"><div class="k">方案</div><p>自訓 YOLO 偵測料盤上的螺絲、另訓手部物件偵測模型，搭配三階段狀態機（等待取料 → 進入料盤 → 離開結算），比對「取了哪個料盒」與「料盤實際多了哪個孔位的螺絲」是否一致，不一致即報警。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 120" role="img" aria-label="三階段狀態機">
+              <defs><marker id="ar4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="20" y="42" width="150" height="48" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="95" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 1 等待取料</text><text x="95" y="79" text-anchor="middle" font-size="9.5" fill="#475569">手在料盒停留</text>
+              <text x="196" y="58" text-anchor="middle" font-size="8.5" fill="#0284c7">停留 &gt; 門檻</text>
+              <line x1="170" y1="66" x2="222" y2="66" stroke="#0284c7" stroke-width="2" marker-end="url(#ar4)"/>
+              <rect x="226" y="42" width="150" height="48" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="301" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 2 進入料盤</text><text x="301" y="79" text-anchor="middle" font-size="9.5" fill="#475569">手入料盤區</text>
+              <text x="402" y="58" text-anchor="middle" font-size="8.5" fill="#0284c7">手離開料盤</text>
+              <line x1="376" y1="66" x2="428" y2="66" stroke="#0284c7" stroke-width="2" marker-end="url(#ar4)"/>
+              <rect x="432" y="42" width="186" height="48" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="525" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 3 離開結算</text><text x="525" y="79" text-anchor="middle" font-size="9.5" fill="#475569">取料盒 vs 新增孔位比對</text>
+              <path d="M525,90 C525,108 95,108 95,92" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar4)"/>
+              <text x="310" y="115" text-anchor="middle" font-size="9" fill="#94a3b8">結算後重置；相位相關性對齊還原料盤座標</text>
+            </svg>
+            <figcaption>三階段狀態機，標註各狀態切換條件</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li>用相位相關性（phase correlation）計算料盤的物理位移，把當前偵測座標還原回基準座標系再比對孔位，解決相機位移問題。</li>
+            <li>手部模型初版只標了料盤上的手，導致拿料盒時偵測不到；重新補標「無手／拿料」情境後重訓修正。</li>
+            <li>同一套狀態機方法論後續複用到另一條 PCB 板產線（雙電子圍籬），驗證了可移植性。</li>
+          </ul></div>
+          <div class="blk"><div class="k">商業成果</div><p>全流程獨立交付：從客戶提供的實際組裝影片出發，轉影格、裁切料盤，標記並訓練判斷孔位是否有螺絲的 YOLO，再標記並訓練偵測手部的 YOLO，最後串接狀態機完成防錯系統；約 650 筆資料訓練、模型表現良好。</p></div>
+          <div class="tags"><span class="tag">YOLO</span><span class="tag">狀態機</span><span class="tag">相位相關性對齊</span><span class="tag">邊緣運算</span></div>
+        </div></div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">5</div>
+          <div class="ht"><h3>CAD 工業圖檔版本差異比對</h3><div class="one">把百萬級工業圖檔轉成可比對的結構化資料，用幾何指紋 + 集合運算 4 分鐘找出改版差異。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">痛點</div><p>工程圖改版後需要逐版檢核差異。AutoCAD 雖內建版本比對功能，但面對肥大的工程圖檔速度極慢；檔案又大到無法直接餵給 LLM 或即時渲染比對，改版檢核因此成為效率瓶頸。</p></div>
+          <div class="blk"><div class="k">方案</div><p>自寫 dwg→dxf→csv 轉檔管線，用 ezdxf 把巢狀圖塊「炸開」、曲線離散化、多段線拆解，壓平成關聯式表格；再為每個物件建立幾何指紋（Hash），用集合運算算出新增、刪除、不變，最後以紅綠對比圖視覺化。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 130" role="img" aria-label="轉檔管線與集合運算">
+              <defs><marker id="ar5" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="14" y="20" width="80" height="38" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="54" y="43" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">DWG→DXF</text>
+              <line x1="94" y1="39" x2="124" y2="39" stroke="#0284c7" stroke-width="2" marker-end="url(#ar5)"/>
+              <rect x="126" y="20" width="150" height="38" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="201" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">ezdxf 壓平</text><text x="201" y="50" text-anchor="middle" font-size="8.5" fill="#475569">炸開／離散化／拆解</text>
+              <line x1="276" y1="39" x2="306" y2="39" stroke="#0284c7" stroke-width="2" marker-end="url(#ar5)"/>
+              <rect x="308" y="20" width="130" height="38" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="373" y="36" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0f172a">關聯式 CSV</text><text x="373" y="50" text-anchor="middle" font-size="8.5" fill="#475569">幾何指紋 round(4)</text>
+              <line x1="438" y1="39" x2="468" y2="39" stroke="#0284c7" stroke-width="2" marker-end="url(#ar5)"/>
+              <rect x="470" y="20" width="156" height="38" rx="8" fill="#0284c7"/><text x="548" y="43" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">集合運算找差異</text>
+              <circle cx="250" cy="98" r="24" fill="#ef4444" fill-opacity="0.18" stroke="#ef4444" stroke-width="1.5"/><text x="232" y="101" text-anchor="middle" font-size="9" fill="#b91c1c">舊</text>
+              <circle cx="290" cy="98" r="24" fill="#22c55e" fill-opacity="0.18" stroke="#16a34a" stroke-width="1.5"/><text x="308" y="101" text-anchor="middle" font-size="9" fill="#15803d">新</text>
+              <text x="360" y="94" font-size="9.5" fill="#b91c1c">刪除 = 舊 − 新</text>
+              <text x="360" y="106" font-size="9.5" fill="#15803d">新增 = 新 − 舊</text>
+              <text x="470" y="100" font-size="9.5" fill="#475569">不變 = 交集</text>
+            </svg>
+            <figcaption>轉檔壓平管線 + 指紋集合運算</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li>放棄「文字摘要餵 LLM」與「渲染成圖比對」兩條路（前者失真、後者百萬物件下太慢），改走指紋比對——這是規模可行的唯一解。</li>
+            <li>指紋座標取小數點後四位，消除浮點誤差造成的假差異。</li>
+            <li>釐清解析套件對不同物件型別的迭代邏輯不同（曾導致 114 萬物件只抓到 6 個的坑）。</li>
+          </ul></div>
+          <div class="blk"><div class="k">商業成果</div><p>4 分鐘內解析 1,538 萬個幾何物件、捕獲率 99.7%、全程無記憶體溢出；大幅縮減人工比對時間（估計值，基於人工比對流程分析）。</p></div>
+          <div class="tags"><span class="tag">CAD / DXF</span><span class="tag">資料工程</span><span class="tag">Hash 比對</span><span class="tag">效能</span></div>
+          <p class="note">客戶名稱依保密原則匿名。</p>
+        </div></div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">6</div>
+          <div class="ht"><h3>小模型 OCR 提示詞工程</h3><div class="one">摸清小型 OCR 模型的能力邊界，為四類文件各設計穩定、可被後端直接解析的輸出格式。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">痛點</div><p>企業把紙本文件電子化時，發票、名片、表格這類文件版式雜亂、難以自動解析，往往得人工逐筆 key in，耗時又容易出錯。</p></div>
+          <div class="blk"><div class="k">方案</div><p>針對文檔、名片、表格、發票四類，順應模型天性只做「順勢轉錄」，各自設計極簡提示詞與最適輸出格式（文檔用 Markdown+HTML 表格+LaTeX、名片用扁平 JSON、表格用 HTML、發票用 JSON 或純文字雙方案），並撰寫後端交接規格。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 124" role="img" aria-label="四類文件輸出格式對照">
+              <rect x="14" y="46" width="96" height="34" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.6"/><text x="62" y="67" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">四類文件</text>
+              <g font-size="10" fill="#0f172a">
+                <rect x="170" y="6" width="150" height="26" rx="7" fill="#fff" stroke="#0ea5e9" stroke-width="1.4"/><text x="180" y="23" font-size="10">文檔 → MD + HTML + LaTeX</text>
+                <rect x="170" y="38" width="150" height="26" rx="7" fill="#fff" stroke="#0ea5e9" stroke-width="1.4"/><text x="180" y="55" font-size="10">名片 → 扁平 JSON</text>
+                <rect x="170" y="70" width="150" height="26" rx="7" fill="#fff" stroke="#0ea5e9" stroke-width="1.4"/><text x="180" y="87" font-size="10">表格 → HTML</text>
+                <rect x="170" y="102" width="150" height="22" rx="7" fill="#fff" stroke="#0ea5e9" stroke-width="1.4"/><text x="180" y="117" font-size="10">發票 → JSON / 純文字</text>
+              </g>
+              <line x1="110" y1="63" x2="166" y2="40" stroke="#94a3b8" stroke-width="1.3"/><line x1="110" y1="63" x2="166" y2="80" stroke="#94a3b8" stroke-width="1.3"/>
+              <line x1="320" y1="50" x2="380" y2="60" stroke="#0284c7" stroke-width="1.6"/>
+              <rect x="384" y="36" width="118" height="34" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.6"/><text x="443" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="#0f172a">正面規則+Schema</text><text x="443" y="64" text-anchor="middle" font-size="8.5" fill="#475569">OpenCV 智慧裁切</text>
+              <line x1="502" y1="53" x2="540" y2="53" stroke="#0284c7" stroke-width="1.6"/>
+              <rect x="542" y="38" width="86" height="30" rx="8" fill="#0284c7"/><text x="585" y="57" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">後端解析</text>
+            </svg>
+            <figcaption>四類文件 → 提示詞策略 → 穩定輸出格式 → 後端解析</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li>用正面規則與輸出 Schema 取代負面禁令，並要求結構一致性，讓後端能直接以程式解析。</li>
+            <li>複雜財報表格會讓小模型崩潰，提出由後端先用 OpenCV 智慧裁切（找行距）再餵模型的策略。</li>
+            <li>加上防呆字串攔截，避免模型回傳的固定錯誤訊息讓後端崩潰。</li>
+          </ul></div>
+          <div class="blk"><div class="k">商業成果</div><p>交付一套後端可直接載入解析的穩定格式與規格，讓資料不需人工干預就能進資料庫。以發票報帳為例，過去要在財務系統人工填單，現在上傳發票即自動提取關鍵欄位；名片則能幫業務快速建立聯絡簿，不怕名片遺失。歷經五十多版提示詞迭代收斂。</p></div>
+          <div class="tags"><span class="tag">提示詞工程</span><span class="tag">OCR</span><span class="tag">JSON Schema</span><span class="tag">後端交接</span></div>
+        </div></div>
+      </div>
+
+    </div><!-- /pillar-eng -->
+
+    <!-- PILLAR: BUSINESS -->
+    <div class="pillar" id="pillar-biz">
+      <p class="sec-lead" style="margin-top:-12px">工程證明把東西做出來的能力；而商業思維，支持我在動手之前先把問題、市場與可行性想清楚——這是企管背景帶來的視角。</p>
+
+      <!-- Biz A -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">A</div>
+          <div class="ht"><h3>FunNow 區域營運優化提案</h3><div class="one">為跨 7 國市場的營運瓶頸做結構化診斷，並設計可量測 KPI 驗證改善。<span style="color:var(--slate-400)">（面試 take-home，2026）</span></div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">背景</div><p>FunNow 集團橫跨 7 個市場（泰、馬、港、菲、台、星、日），總部與在地團隊的資訊與決策仰賴大量人工流程，造成跨團隊執行瓶頸。</p></div>
+          <div class="blk"><div class="k">診斷</div><p>真正的瓶頸不是「資訊流」，而是 Team Lead 被結構性地當成「集團的人工彙整引擎」，且沒有可擴展的替代方案——它不會卡住日常執行，卻會在頂層悄悄扭曲策略決策。</p></div>
+          <div class="blk"><div class="k">提案主張</div><p>提出一套結構化的優化框架，並設計 3 個可量測 KPI，量化決策速度、資源優化與人工工時的改善。</p></div>
+          <div class="blk"><div class="k">為何收錄</div><p>這份作業展現的是結構化思考，以及「先思考、再執行」的工作方式。</p></div>
+          <div class="tags"><span class="tag">營運策略</span><span class="tag">瓶頸診斷</span><span class="tag">KPI 設計</span><span class="tag">跨國</span></div>
+        </div></div>
+      </div>
+
+      <!-- Biz B -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">B</div>
+          <div class="ht"><h3>TuFlow 土不落 — AI 智慧土方循環管理系統</h3><div class="one">把「工地挖出的土」與「工地需要的回填料」即時媒合，補上現行制度缺的去化與媒合能力。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">背景與洞察</div><p>2026 土方新制雖以 GPS 與電子聯單提升透明度，卻沒同步補上「去化能力」與「即時媒合」，導致合法土資場接近飽和、清運費飆升、非法棄置誘因被放大——而風險往往落在第一線司機與在地居民身上。</p></div>
+          <div class="blk"><div class="k">解方（三模組）</div><ul>
+            <li>AI 法規問答：附法條來源，降低誤判。</li>
+            <li>智慧媒合與最短運輸路徑：地圖視覺化。</li>
+            <li>語音／文字一句話完成電子聯單：自動串接 GPS。</li>
+          </ul></div>
+          <div class="blk"><div class="k">角色分工</div><p>概念發想、可行性分析（供需確認、現行機制對比、法規容許性查證）與三模組的解方規劃由本人主導；技術實作則由團隊資工系成員負責——對應的正是商業與可行性評估的核心職能。</p></div>
+          <div class="tags"><span class="tag">市場洞察</span><span class="tag">政策分析</span><span class="tag">可行性評估</span><span class="tag">方案規劃</span></div>
+          <p class="note">2026 全國大專院校永續×循環經濟×AI 創新提案競賽參賽作品。</p>
+        </div></div>
+      </div>
+
+      <!-- ROI band -->
+      <div class="roi-band">
+        <h3>可量化的成效對比</h3>
+        <div class="roi-grid">
+          <div class="roi-item"><div class="rk">文件數位化</div><div class="rv">公部門文件 OCR 實測：純文字生成僅秒級，相較人工整理動輒數十分鐘（例：登記表 9 秒 vs 人工約 17 分鐘）。</div></div>
+          <div class="roi-item"><div class="rk">工業圖檔比對</div><div class="rv">自動化解析大幅縮減人工逐項比對時間（估計值，基於人工比對流程分析）。</div></div>
+          <div class="roi-item"><div class="rk">影像稽核</div><div class="rv">把單筆交易的 LLM 推論成本壓到約 TWD 0.0035。</div></div>
+        </div>
+      </div>
+
+    </div><!-- /pillar-biz -->
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <h2 class="sec-title">能力樹 — <span class="accent">從商業到落地的全鏈路</span></h2>
+    <div class="lv-legend">
+      <span><span class="lv lv-3">精通</span> 處理非典型狀況、產出方法論</span>
+      <span><span class="lv lv-2">熟悉</span> 獨立完成、會 debug、懂取捨</span>
+      <span><span class="lv lv-1">入門</span> 指引下完成</span>
+    </div>
+    <div class="skill-grid">
+      <div class="skill-cat core">
+        <h3>AI 解決方案開發 <span class="badge">核心</span></h3>
+        <div class="skill-row"><span>提示詞工程</span><span class="lv lv-3">精通</span></div>
+        <div class="skill-row"><span>多模型評測與選型</span><span class="lv lv-3">精通</span></div>
+        <div class="skill-row"><span>成本／Token 優化</span><span class="lv lv-3">精通</span></div>
+        <div class="skill-row"><span>LLM／VLM 應用與整合</span><span class="lv lv-2">熟悉</span></div>
+      </div>
+      <div class="skill-cat">
+        <h3>電腦視覺與影像系統</h3>
+        <div class="skill-row"><span>YOLO 訓練與推論</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>電子圍籬／ROI 與狀態機</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>座標幾何與碰撞判定</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>CAD／DXF 解析</span><span class="lv lv-2">熟悉</span></div>
+      </div>
+      <div class="skill-cat">
+        <h3>資料工程與資料品質</h3>
+        <div class="skill-row"><span>高敏感資料清洗與標籤映射</span><span class="lv lv-3">精通</span></div>
+        <div class="skill-row"><span>資料標記與格式轉換</span><span class="lv lv-3">精通</span></div>
+        <div class="skill-row"><span>批次處理腳本</span><span class="lv lv-2">熟悉</span></div>
+      </div>
+      <div class="skill-cat">
+        <h3>軟體工程與系統整合</h3>
+        <div class="skill-row"><span>Vibe coding（LLM 輔助開發）</span><span class="lv lv-3">精通</span></div>
+        <div class="skill-row"><span>Python</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>API 規格與 JSON Schema 設計</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>FSM／第三方服務整合</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>技術文件撰寫</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>後端 Golang</span><span class="lv lv-1">入門</span></div>
+      </div>
+      <div class="skill-cat core">
+        <h3>商業策略與專案管理 <span class="badge">差異化</span></h3>
+        <div class="skill-row"><span>ROI／工時成本量化</span><span class="lv lv-3">精通</span></div>
+        <div class="skill-row"><span>結構化策略思考與問題診斷</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>商業提案與企劃</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>跨國／跨部門協調</span><span class="lv lv-2">熟悉</span></div>
+      </div>
+      <div class="skill-cat">
+        <h3>數據分析與視覺化</h3>
+        <div class="skill-row"><span>GA／Ahrefs</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>Looker Studio／PowerBI</span><span class="lv lv-2">熟悉</span></div>
+        <div class="skill-row"><span>benchmark 設計與量測</span><span class="lv lv-2">熟悉</span></div>
+      </div>
+    </div>
+    <div class="certs">
+      <div class="cert"><div class="ci">T</div><div><div class="ct">多益 TOEIC 815</div><div class="cs">英語溝通能力</div></div></div>
+      <div class="cert"><div class="ci">L</div><div><div class="ct">領思 Linguaskill B2</div><div class="cs">CEFR B2</div></div></div>
+      <div class="cert"><div class="ci">N</div><div><div class="ct">NVIDIA DLI — Rapid Application Development with LLMs</div><div class="cs">Certificate of Competency・2026/05</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="exp">
+  <div class="wrap">
+    <h2 class="sec-title">經歷 — <span class="accent">行銷 → 數據 → AI 的跨域累積</span></h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="role">Leda Tech ・ AI Engineer Intern</div>
+        <div class="meta">2025/09 – 現在｜桃園・Hybrid</div>
+        <p>獨立完成多個從資料、模型到後端串接的 AI PoC，並推動其中數個落地。擅長在成本、準確率與場景限制之間做工程取捨。上方「工程落地」六個專案多源於此段。</p>
+      </div>
+      <div class="tl-item">
+        <div class="role">Patients Force ・ Data Analyst Intern</div>
+        <div class="meta">2025/06 – 2025/09｜台北</div>
+        <p>負責高敏感、高複雜度數據的清洗與標籤映射，梳理雜亂的原始商業數據，為後續事業單位的決策提供可靠的資料基底。</p>
+      </div>
+      <div class="tl-item">
+        <div class="role">Whoscall ・ Digital Marketing Intern</div>
+        <div class="meta">2024/07 – 2025/03｜台北</div>
+        <p>協調台、泰、日、港澳等多國渠道的素材製作與時程，於雙 11 檔期推動專案落地；用 GA、Ahrefs 追蹤成效，以 Looker Studio、PowerBI 建立視覺化儀表板，把龐雜數據轉化為商業決策。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="about-card">
+      <h2>聯絡我</h2>
+      <p>如果您的團隊正在推動 AI 轉型、想為各個職能找到真正用得起來的應用，很期待能與您聊聊怎麼幫上忙。</p>
+      <div class="contact-row">
+        <a href="mailto:sc.chen1013@gmail.com">✉ sc.chen1013@gmail.com</a>
+        <a href="#" data-repo>◎ GitHub（待補連結）</a>
+        <a href="#" data-resume>⬇ 下載履歷 PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 陳士杰 Jacky Chen ・ 把商業問題，端到端做成可落地的 AI 方案</footer>
+<button id="toTop" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  /* ============================================================
+     ★ 可編輯設定區（只改這三行就好，不用動其他程式碼）★
+     - github：你的 GitHub 連結；留空字串 "" 則按鈕顯示「待補連結」
+     - resume：履歷檔名（把 PDF 放在與本檔同一資料夾），或完整網址；留空則隱藏按鈕
+     - email ：聯絡信箱
+     ============================================================ */
+  const SITE_CONFIG = {
+    github: "https://github.com/tomato1013",   // GitHub 主頁（顯示於「聯絡我」）
+    resume: "",                                 // 履歷檔名，例如 "resume.pdf"；留空則隱藏按鈕
+    email:  "sc.chen1013@gmail.com",
+    repos: {                                    // 各專案原始碼連結（留空則該卡不顯示按鈕）
+      retail:   "https://github.com/tomato1013/Smart-Retail-Monitor",  // 智慧驛站
+      contract: "https://github.com/tomato1013/contract_assistant",    // 合約風險分析
+      tgbot:    "https://github.com/tomato1013/telegram-BOT"           // Telegram 機器人
+    }
+  };
+
+  function applyConfig(){
+    var mail=document.querySelector('a[href^="mailto"]');
+    if(mail&&SITE_CONFIG.email){ mail.href="mailto:"+SITE_CONFIG.email; mail.textContent="✉ "+SITE_CONFIG.email; }
+    var repo=document.querySelector('[data-repo]');
+    if(repo){
+      if(SITE_CONFIG.github){ repo.href=SITE_CONFIG.github; repo.target="_blank"; repo.rel="noopener"; repo.textContent="◎ GitHub"; }
+      else{ repo.style.display="none"; }   // 沒填就先隱藏，避免出現「待補連結」
+    }
+    var res=document.querySelector('[data-resume]');
+    if(res){
+      if(SITE_CONFIG.resume){ res.href=SITE_CONFIG.resume; res.setAttribute("download",""); res.textContent="⬇ 下載履歷 PDF"; }
+      else{ res.style.display="none"; }
+    }
+    var repos=SITE_CONFIG.repos||{};
+    document.querySelectorAll('[data-repo-card]').forEach(function(a){
+      var url=repos[a.getAttribute('data-repo-card')];
+      if(url){ a.href=url; a.target="_blank"; a.rel="noopener"; }
+      else{ a.style.display="none"; }
+    });
+  }
+  applyConfig();
+
+  function setPillar(which){
+    var eng=document.getElementById('pillar-eng'), biz=document.getElementById('pillar-biz');
+    var te=document.getElementById('tab-eng'), tb=document.getElementById('tab-biz');
+    if(which==='biz'){biz.classList.add('show');eng.classList.remove('show');tb.classList.add('active');te.classList.remove('active');}
+    else{eng.classList.add('show');biz.classList.remove('show');te.classList.add('active');tb.classList.remove('active');}
+    document.getElementById('navmenu').classList.remove('open');
+  }
+  function toggleCard(head){
+    var card=head.parentElement, body=head.nextElementSibling;
+    if(card.classList.contains('open')){card.classList.remove('open');body.style.maxHeight=null;}
+    else{card.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
+  }
+  // recalc open card height on resize
+  window.addEventListener('resize',function(){
+    document.querySelectorAll('.card.open .card-body').forEach(function(b){b.style.maxHeight=b.scrollHeight+'px';});
+  });
+  // back to top visibility
+  window.addEventListener('scroll',function(){
+    document.getElementById('toTop').classList.toggle('show',window.scrollY>500);
+  });
+  // close mobile menu on link click
+  document.querySelectorAll('#navmenu a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('navmenu').classList.remove('open');});
+  });
+</script>
+</body>
+</html>
