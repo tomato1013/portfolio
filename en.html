@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jacky Chen | Applied AI × Business Execution</title>
+<meta content="Business-trained AI Application Engineer building and iterating practical Applied AI solutions across LLM/VLM, Computer Vision, Document AI, workflow automation, and data." name="description"/>
+<style>
+  :root{
+    --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd; --sky-300:#7dd3fc;
+    --sky-400:#38bdf8; --sky-500:#0ea5e9; --sky-600:#0284c7; --sky-700:#0369a1; --sky-800:#075985;
+    --slate-900:#0f172a; --slate-700:#334155; --slate-600:#475569; --slate-500:#64748b;
+    --slate-400:#94a3b8; --slate-300:#cbd5e1; --slate-200:#e2e8f0; --slate-100:#f1f5f9;
+    --biz:#0e7490; --biz-soft:#ecfeff; --biz-border:#a5f3fc;
+    --bg:#ffffff; --maxw:1080px;
+    --shadow:0 1px 3px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.05);
+    --shadow-lg:0 12px 40px rgba(2,132,199,.12);
+    --r:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+    color:var(--slate-900);background:var(--bg);line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--sky-700);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:84px 0;border-top:1px solid var(--slate-100)}
+  h2.sec-title{font-size:1.9rem;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;color:var(--slate-900)}
+  h2.sec-title .accent{color:var(--sky-600)}
+  .sec-lead{color:var(--slate-600);max-width:60ch;margin-bottom:40px;font-size:1.02rem}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--slate-200)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:1.05rem;letter-spacing:-.3px;cursor:pointer;color:var(--slate-900)}
+  .brand .dot{color:var(--sky-500)}
+  .nav ul{display:flex;gap:4px;list-style:none;flex-wrap:wrap}
+  .nav ul a{display:block;padding:8px 12px;border-radius:8px;font-size:.92rem;color:var(--slate-600);font-weight:500;transition:.15s}
+  .nav ul a:hover{background:var(--sky-50);color:var(--sky-700)}
+  .lang-switch a{border:1px solid var(--sky-200);color:var(--sky-700)!important;font-weight:700!important}
+  .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--slate-700)}
+
+  /* HERO */
+  .hero{background:linear-gradient(180deg,var(--sky-50) 0%,#ffffff 100%);border-top:none;padding-top:72px}
+  .hero .eyebrow{display:inline-block;background:var(--sky-100);color:var(--sky-700);font-weight:700;font-size:.82rem;padding:6px 14px;border-radius:999px;letter-spacing:.5px;margin-bottom:22px}
+  .hero h1{font-size:2.5rem;line-height:1.3;font-weight:800;letter-spacing:-1px;margin-bottom:20px}
+  .hero h1 .hl{background:linear-gradient(120deg,var(--sky-500),var(--sky-700));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .sub{font-size:1.12rem;color:var(--slate-600);max-width:62ch;margin-bottom:36px}
+  .hero-top{display:flex;gap:44px;align-items:center;margin-bottom:8px}
+  .hero-left{flex:1.65;min-width:0}
+  .hero-left .sub{margin-bottom:0}
+  .hero-art{flex:1;display:flex;justify-content:center;max-width:340px}
+  .hero-art svg{width:100%;height:auto}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:36px}
+  .stat{background:#fff;border:1px solid var(--slate-200);border-radius:var(--r);padding:24px;box-shadow:var(--shadow)}
+  .stat .num{font-size:2.1rem;font-weight:800;color:var(--sky-600);letter-spacing:-1px;line-height:1.1}
+  .stat .label{font-size:.92rem;color:var(--slate-600);margin-top:8px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:600;font-size:.96rem;cursor:pointer;border:1px solid transparent;transition:.15s}
+  .btn-primary{background:var(--sky-600);color:#fff}
+  .btn-primary:hover{background:var(--sky-700)}
+  .btn-ghost{background:#fff;color:var(--sky-700);border-color:var(--sky-300)}
+  .btn-ghost:hover{background:var(--sky-50)}
+
+  /* METHOD */
+  .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .principle{background:#fff;border:1px solid var(--slate-200);border-left:4px solid var(--sky-500);border-radius:12px;padding:24px}
+  .principle .n{font-size:.8rem;font-weight:800;color:var(--sky-500);letter-spacing:1px}
+  .principle h3{font-size:1.12rem;margin:6px 0 8px}
+  .principle p{color:var(--slate-600);font-size:.96rem}
+  .about-prose{max-width:none}
+  .about-prose p{color:var(--slate-700);font-size:1.04rem;margin-bottom:16px}
+  .edu-line{margin-top:8px;font-weight:600;color:var(--sky-700);font-size:.98rem}
+
+  /* PILLAR TABS */
+  .tabs{display:inline-flex;background:var(--slate-100);border-radius:12px;padding:5px;margin-bottom:36px;gap:4px}
+  .tab{padding:10px 22px;border-radius:9px;border:none;background:none;font-weight:600;font-size:.96rem;color:var(--slate-600);cursor:pointer;transition:.15s;font-family:inherit}
+  .tab.active{background:#fff;color:var(--sky-700);box-shadow:var(--shadow)}
+  .pillar{display:none}
+  .pillar.show{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* PROJECT CARDS */
+  .card{background:#fff;border:1px solid var(--slate-200);border-radius:var(--r);margin-bottom:18px;overflow:hidden;transition:.2s}
+  .card:hover{box-shadow:var(--shadow-lg);border-color:var(--sky-200)}
+  .card-head{display:flex;align-items:flex-start;gap:16px;padding:24px 26px;cursor:pointer}
+  .card-idx{flex:none;width:34px;height:34px;border-radius:9px;background:var(--sky-50);color:var(--sky-600);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .card-head .ht{flex:1}
+  .card-head h3{font-size:1.22rem;font-weight:700;margin-bottom:4px}
+  .card-head .one{color:var(--slate-600);font-size:.97rem}
+  .chev{flex:none;color:var(--slate-400);transition:.2s;margin-top:4px}
+  .card.open .chev{transform:rotate(180deg)}
+  .card-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .card-inner{padding:0 26px 26px;border-top:1px solid var(--slate-100)}
+  .card-inner .blk{margin-top:18px}
+  .card-inner .blk .k{font-size:.82rem;font-weight:800;letter-spacing:.5px;color:var(--sky-600);text-transform:uppercase;margin-bottom:6px}
+  .card-inner .blk p,.card-inner .blk li{color:var(--slate-700);font-size:.97rem}
+  .card-inner .blk ul{padding-left:20px}
+  .card-inner .blk li{margin-bottom:5px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .tag{background:var(--sky-50);color:var(--sky-700);font-size:.8rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid var(--sky-100)}
+  .note{font-size:.84rem;color:var(--slate-400);margin-top:14px;font-style:italic}
+  .src-link{display:inline-block;margin-top:18px;font-size:.9rem;font-weight:600;color:var(--sky-700);border:1px solid var(--sky-300);padding:7px 16px;border-radius:9px;transition:.15s}
+  .src-link:hover{background:var(--sky-50)}
+  figure.diagram{margin:20px 0 4px;background:var(--sky-50);border:1px solid var(--sky-100);border-radius:12px;padding:18px;overflow-x:auto}
+  figure.diagram svg{display:block;margin:0 auto;max-width:100%;height:auto}
+  figure.diagram figcaption{text-align:center;font-size:.82rem;color:var(--slate-500);margin-top:10px}
+
+  /* BUSINESS pillar accent */
+  #pillar-biz .card{border-left:4px solid var(--biz)}
+  #pillar-biz .card-idx{background:var(--biz-soft);color:var(--biz)}
+  #pillar-biz .blk .k{color:var(--biz)}
+  #pillar-biz .tag{background:var(--biz-soft);color:var(--biz);border-color:var(--biz-border)}
+  .roi-band{background:linear-gradient(120deg,var(--biz-soft),var(--sky-50));border:1px solid var(--biz-border);border-radius:var(--r);padding:28px;margin-top:8px}
+  .roi-band h3{font-size:1.15rem;margin-bottom:18px;color:var(--biz)}
+  .roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .roi-item .rk{font-weight:700;color:var(--slate-900);margin-bottom:4px;font-size:.98rem}
+  .roi-item .rv{color:var(--slate-600);font-size:.92rem}
+
+  /* PROJECT THREADS */
+  .thread-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:start}
+  .thread-card{background:#fff;border:1px solid var(--slate-200);border-radius:var(--r);padding:26px;box-shadow:var(--shadow)}
+  .thread-card h3{font-size:1.12rem;margin-bottom:10px}
+  .thread-card p{color:var(--slate-700);font-size:.97rem;margin-bottom:12px}
+  .thread-list{padding-left:20px;color:var(--slate-700);font-size:.95rem}
+  .thread-list li{margin-bottom:6px}
+  .status-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+  .status-box{border:1px solid var(--slate-200);border-radius:12px;padding:20px;background:#fff}
+  .status-box h3{font-size:1rem;margin-bottom:10px;color:var(--sky-700)}
+  .status-box.future h3{color:var(--biz)}
+
+  /* SKILL TREE */
+  .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .skill-cat{background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:22px}
+  .skill-cat h3{font-size:1.05rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .skill-cat h3 .badge{font-size:.72rem;font-weight:700;background:var(--sky-100);color:var(--sky-700);padding:3px 9px;border-radius:999px}
+  .skill-cat.core{border-color:var(--sky-300);background:linear-gradient(180deg,var(--sky-50),#fff)}
+  .skill-row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--slate-100);font-size:.93rem}
+  .skill-row:last-child{border-bottom:none}
+  .lv{display:inline-block;font-size:.76rem;font-weight:700;padding:3px 11px;border-radius:999px;line-height:1.4}
+  .skill-row .lv{flex:none}
+  .lv-3{background:#0284c7;color:#fff}
+  .lv-2{background:var(--sky-100);color:var(--sky-700)}
+  .lv-1{background:var(--slate-100);color:var(--slate-500)}
+  .certs{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .cert{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--slate-200);border-radius:12px;padding:16px 20px;flex:1;min-width:240px}
+  .cert .ci{flex:none;width:40px;height:40px;border-radius:10px;background:var(--sky-50);color:var(--sky-600);display:flex;align-items:center;justify-content:center;font-weight:800}
+  .cert .ct{font-weight:700;font-size:.95rem}
+  .cert .cs{font-size:.82rem;color:var(--slate-500)}
+  .lv-legend{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:.86rem;color:var(--slate-500);margin-bottom:34px}
+  .lv-legend>span{display:inline-flex;align-items:center;gap:7px}
+  .disclaimer{font-size:.82rem;color:var(--slate-400);margin-top:14px;max-width:70ch}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--slate-200)}
+  .tl-item{position:relative;margin-bottom:28px}
+  .tl-item::before{content:"";position:absolute;left:-28px;top:6px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--sky-500)}
+  .tl-item .role{font-weight:700;font-size:1.08rem}
+  .tl-item .meta{color:var(--sky-700);font-size:.9rem;font-weight:600;margin:2px 0 6px}
+  .tl-item p{color:var(--slate-600);font-size:.96rem}
+
+  /* ABOUT / CONTACT */
+  .about-card{background:linear-gradient(135deg,var(--sky-600),var(--sky-800));color:#fff;border-radius:18px;padding:44px}
+  .about-card h2{font-size:1.7rem;margin-bottom:18px;color:#fff}
+  .about-card p{color:rgba(255,255,255,.92);margin-bottom:14px;max-width:66ch}
+  .contact-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+  .contact-row a{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25);padding:11px 20px;border-radius:10px;font-weight:600;font-size:.95rem;transition:.15s}
+  .contact-row a:hover{background:rgba(255,255,255,.24)}
+  .edu{margin-top:18px;font-size:.95rem;color:rgba(255,255,255,.85)}
+
+  footer{padding:30px 0;text-align:center;color:var(--slate-400);font-size:.85rem;border-top:1px solid var(--slate-100)}
+
+  /* back to top */
+  #toTop{position:fixed;right:24px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--sky-600);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow-lg);font-size:1.2rem;opacity:0;pointer-events:none;transition:.25s;z-index:40}
+  #toTop.show{opacity:1;pointer-events:auto}
+
+  @media print{
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    header.nav,#toTop,.nav-toggle,.cta-row,.tabs{display:none!important}
+    html{scroll-padding-top:0}
+    section{padding:24px 0;border-top:1px solid var(--slate-200);break-inside:avoid}
+    .hero{padding-top:20px}
+    .pillar{display:block!important}
+    .pillar#pillar-biz{margin-top:18px}
+    .card{break-inside:avoid;box-shadow:none}
+    .card-body{max-height:none!important;overflow:visible!important}
+    .card .chev{display:none}
+    figure.diagram{break-inside:avoid}
+    .about-card{break-inside:avoid}
+    a[href^="mailto"]{color:#fff}
+    .hero h1 .hl{-webkit-text-fill-color:#0369a1;color:#0369a1;background:none}
+  }
+  @media(max-width:780px){
+    .nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#fff;border-bottom:1px solid var(--slate-200);padding:8px 16px}
+    .nav ul.open{display:flex}
+    .nav-toggle{display:block}
+    .hero h1{font-size:2.1rem}
+    .hero-top{flex-direction:column;gap:0}
+    .hero-art{display:none}
+    .stats,.principles,.skill-grid,.roi-grid,.thread-grid,.status-grid{grid-template-columns:1fr}
+    section{padding:60px 0}
+  }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<header class="nav">
+<div class="wrap">
+<div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">陳士杰<span class="dot">.</span>Jacky</div>
+<button aria-label="Menu" class="nav-toggle" onclick="document.getElementById('navmenu').classList.toggle('open')">☰</button>
+<ul id="navmenu">
+<li><a href="#hero">Home</a></li>
+<li><a href="#work">Projects</a></li>
+<li><a href="#threads">Project Threads</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#exp">Experience</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+<li class="lang-switch"><a href="index.html">中文</a></li>
+</ul>
+</div>
+</header>
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="wrap">
+<div class="hero-top">
+<div class="hero-left">
+<h1><span class="hl">Break down business problems, rapidly build, validate, and iterate AI solutions</span></h1>
+<p class="sub">An AI Application Engineer with a business background, working across LLM/VLM, Computer Vision, Document AI, workflow automation, and data processing. Rather than simply stacking models and tools, I focus on problem decomposition, technical trade-offs, testing and validation, and understanding why a solution fails in real-world conditions so it can be improved through iteration.</p>
+</div>
+<div aria-hidden="false" class="hero-art">
+<svg aria-label="End-to-end flow from business problem to working PoC" role="img" viewbox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="hg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#e0f2fe"></stop><stop offset="1" stop-color="#f0f9ff"></stop></lineargradient>
+<marker id="ha" markerheight="10" markerwidth="10" orient="auto" refx="6" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#38bdf8"></path></marker>
+</defs>
+<rect fill="url(#hg)" height="348" rx="26" width="388" x="6" y="6"></rect>
+<circle cx="350" cy="48" fill="#bae6fd" r="6"></circle><circle cx="40" cy="320" fill="#bae6fd" r="5"></circle>
+<path d="M150,64 C232,74 218,112 205,134" fill="none" marker-end="url(#ha)" stroke="#7dd3fc" stroke-width="2.5"></path>
+<path d="M200,168 C150,182 165,206 178,226" fill="none" marker-end="url(#ha)" stroke="#7dd3fc" stroke-width="2.5"></path>
+<path d="M150,248 C232,258 218,296 205,316" fill="none" marker-end="url(#ha)" stroke="#7dd3fc" stroke-width="2.5"></path>
+<g>
+<rect fill="#fff" height="48" rx="13" stroke="#7dd3fc" stroke-width="2" width="150" x="36" y="40"></rect>
+<text fill="#0f172a" font-size="16" font-weight="700" text-anchor="middle" x="111" y="70">Business problem</text>
+<rect fill="#fff" height="48" rx="13" stroke="#7dd3fc" stroke-width="2" width="150" x="200" y="120"></rect>
+<text fill="#0f172a" font-size="15" font-weight="700" text-anchor="middle" x="275" y="150">Data collection &amp; cleaning</text>
+<rect fill="#fff" height="48" rx="13" stroke="#7dd3fc" stroke-width="2" width="150" x="36" y="200"></rect>
+<text fill="#0f172a" font-size="15" font-weight="700" text-anchor="middle" x="111" y="230">Solution design &amp; trade-offs</text>
+<rect fill="#0284c7" height="52" rx="14" width="160" x="200" y="280"></rect>
+<text fill="#fff" font-size="16" font-weight="800" text-anchor="middle" x="280" y="312">Working PoC</text>
+</g>
+</svg>
+</div>
+</div>
+<div class="stats">
+<div class="stat"><div class="num">8 days</div><div class="label">Built and delivered an assembly-line error-proofing PoC independently</div></div>
+<div class="stat"><div class="num">−73%</div><div class="label">Reduced LLM inference cost for real-time visual auditing by about 73%</div></div>
+<div class="stat"><div class="num">15.38M</div><div class="label">Parsed 15.38M CAD objects in 4 minutes with 99.7% capture rate</div></div>
+</div>
+<div class="cta-row">
+<a class="btn btn-primary" href="#work" onclick="setPillar('eng')">Engineering Projects ▸</a>
+<a class="btn btn-ghost" href="#work" onclick="setPillar('biz')">Business Projects ▸</a>
+<a class="btn btn-ghost" href="#contact">Contact Me ▸</a>
+</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+<div class="wrap">
+<h2 class="sec-title">About</h2>
+<p class="sec-lead">Building cross-disciplinary experience from business understanding to AI implementation.</p>
+<div class="about-prose">
+<p>I am Jacky Chen, a Business Administration graduate from National Central University. My experience spans marketing, data analytics, and AI engineering, and I currently focus on hands-on Applied AI / AI Application work.</p>
+<p>I am good at turning ambiguous business or process problems into testable technical tasks, then rapidly building PoCs with Python, LLM/VLM, Computer Vision, APIs, state machines, and data processing. My projects include assembly-line error proofing, smart-station behavior auditing, contract risk analysis, Document AI, OCR image-quality checking, and workflow automation.</p>
+<p>My business background makes me think first about user context, cost, and process value, with the goal of proposing solutions people actually want to use. Engineering practice lets me turn those ideas into tools that are genuinely useful and improve efficiency. I care less about technical complexity for its own sake and more about whether a solution can be validated, whether failures can be diagnosed, and whether the final system actually solves the original problem.</p>
+<div class="edu-line">🎓 National Central University · Business Administration</div>
+</div>
+</div>
+</section>
+<!-- WORK -->
+<section id="work">
+<div class="wrap">
+<h2 class="sec-title">Projects — <span class="accent">Engineering Execution × Business Strategy</span></h2>
+<p class="sec-lead">Two capabilities support the same approach: engineering execution to make solutions work, and business judgment to frame the problem before building.</p>
+<div class="tabs">
+<button class="tab active" id="tab-eng" onclick="setPillar('eng')">Engineering</button>
+<button class="tab" id="tab-biz" onclick="setPillar('biz')">Business Strategy</button>
+</div>
+<!-- PILLAR: ENGINEERING -->
+<div class="pillar show" id="pillar-eng">
+<!-- Card 1 -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">1</div>
+<div class="ht"><h3>Smart Pickup Station Package Audit System</h3><div class="one">Used a vision-language model to automate pickup auditing, then reduced inference cost by about 73% through model replacement and prompt optimization after customer feedback.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Problem</div><p>An unmanned pickup station needed to verify whether a customer actually went to the scanner before leaving. The original process relied on human agents watching video, which did not scale, while real-world movement and occlusion made pure rule-based logic insufficient.</p></div>
+<div class="blk"><div class="k">Solution</div><p>I combined a Gemini VLM with a two-stage geofence state machine: Stage 1 detects pickup behavior near the shelf, Stage 2 checks scanning near the scanner. Object detection provides person coordinates, custom collision logic handles zone entry, and the VLM performs semantic confirmation. After the customer flagged API cost, I switched to Qwen-VL, reworked prompts, and re-tested 45 scenarios to choose the best cost/performance balance.</p></div>
+<figure class="diagram">
+<svg aria-label="Two-stage state machine flow" role="img" viewbox="0 0 640 165">
+<defs><marker id="ar" markerheight="9" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"></path></marker></defs>
+<rect fill="#fff" height="50" rx="10" stroke="#0ea5e9" stroke-width="2" width="120" x="14" y="60"></rect>
+<text fill="#0f172a" font-size="13" font-weight="700" text-anchor="middle" x="74" y="82">Stage 1</text>
+<text fill="#475569" font-size="10" text-anchor="middle" x="74" y="98">Shelf · Pickup detection</text>
+<text fill="#0284c7" font-size="9" text-anchor="middle" x="164" y="78">Person enters shelf ROI</text>
+<line marker-end="url(#ar)" stroke="#0284c7" stroke-width="2" x1="138" x2="190" y1="85" y2="85"></line>
+<rect fill="#f0f9ff" height="50" rx="10" stroke="#0284c7" stroke-width="2" width="130" x="194" y="60"></rect>
+<text fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle" x="259" y="82">VLM semantic check</text>
+<text fill="#475569" font-size="10" text-anchor="middle" x="259" y="98">OD coordinates + collision</text>
+<text fill="#0284c7" font-size="9" text-anchor="middle" x="354" y="78">Pickup confirmed</text>
+<line marker-end="url(#ar)" stroke="#0284c7" stroke-width="2" x1="328" x2="380" y1="85" y2="85"></line>
+<rect fill="#fff" height="50" rx="10" stroke="#0ea5e9" stroke-width="2" width="130" x="384" y="60"></rect>
+<text fill="#0f172a" font-size="13" font-weight="700" text-anchor="middle" x="449" y="82">Stage 2</text>
+<text fill="#475569" font-size="10" text-anchor="middle" x="449" y="98">Scanner · crop &amp; focus</text>
+<text fill="#0284c7" font-size="9" text-anchor="middle" x="542" y="78">Scan confirmed</text>
+<line marker-end="url(#ar)" stroke="#0284c7" stroke-width="2" x1="518" x2="566" y1="85" y2="85"></line>
+<rect fill="#0284c7" height="40" rx="10" width="58" x="568" y="65"></rect>
+<text fill="#fff" font-size="12" font-weight="700" text-anchor="middle" x="597" y="89">Done</text>
+<line stroke="#94a3b8" stroke-dasharray="3 3" stroke-width="1.5" x1="449" x2="449" y1="110" y2="128"></line>
+<text fill="#94a3b8" font-size="9.5" text-anchor="middle" x="449" y="142">Voiceprint = backup assistance when VLM/network fails</text>
+</svg>
+<figcaption>Two-stage FSM + OD/VLM dual-layer decision flow</figcaption>
+</figure>
+<div class="blk"><div class="k">Key Technical Decisions</div><ul>
+<li><b>Cost optimization</b>: Replaced the VLM with a lightweight 8B model and cropped the scanner area before Stage 2, helping the smaller model focus on small objects while improving both accuracy and cost.</li>
+<li><b>Robustness</b>: Person detection can flicker in surveillance footage, so I added tolerance for missed frames without resetting timers plus an LLM cooldown to prevent repeated triggers.</li>
+<li><b>Fallback design</b>: Implemented voiceprint matching as a fallback path to assist support staff when the VLM or network is unavailable.</li>
+</ul></div>
+<div class="blk"><div class="k">Outcome</div><p>Inference cost was reduced to about TWD 0.0035 per transaction, roughly 73% lower than the original Gemini approach. I validated the solution on 45 effective test scenarios and produced a test report.</p></div>
+<div class="tags"><span class="tag">VLM</span><span class="tag">State Machine</span><span class="tag">Cost optimization</span><span class="tag">Edge Vision</span></div>
+<a class="src-link" data-repo-card="retail" href="#">Source Code ▸</a>
+</div></div>
+</div>
+<!-- Card 2 -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">2</div>
+<div class="ht"><h3>Contract Risk Analysis Tool</h3><div class="one">Benchmarked model/flow options, then used a fast full-document model plus local clause-number correction to bring large-contract analysis down to a usable 20–60 seconds.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Problem</div><p>Legal reviewers had to read contracts of roughly 50,000 Chinese characters line by line, which was slow and error-prone. Sending the entire contract to the AI service could hit a ~100-second gateway timeout, and the model often cited the wrong clause number.</p></div>
+<div class="blk"><div class="k">Solution</div><p>I systematically evaluated 10 LLMs under two strategies—single-pass full document and chunk-then-aggregate—tracking latency, clause-hit accuracy, and risk-level distribution. The selected approach was a fast full-document call with timeout retry plus local clause-number verification, presented through a one-page risk dashboard.</p></div>
+<div class="blk"><div class="k">Use Case</div><p>The goal of this demo is not to replace legal reviewers, but to perform a first-pass risk scan, highlight potentially important clauses and their original positions, and help legal staff focus faster while retaining final judgment.</p></div>
+<figure class="diagram">
+<svg aria-label="Contract analysis data flow" role="img" viewbox="0 0 640 120">
+<defs><marker id="ar2" markerheight="9" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"></path></marker></defs>
+<rect fill="#fff" height="44" rx="9" stroke="#0ea5e9" stroke-width="2" width="96" x="8" y="40"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="56" y="60">Upload contract</text><text fill="#475569" font-size="9" text-anchor="middle" x="56" y="75">Extract text from PDF/Word</text>
+<line marker-end="url(#ar2)" stroke="#0284c7" stroke-width="2" x1="106" x2="142" y1="62" y2="62"></line>
+<rect fill="#f0f9ff" height="44" rx="9" stroke="#0284c7" stroke-width="2" width="96" x="144" y="40"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="192" y="60">Local proxy</text><text fill="#475569" font-size="9" text-anchor="middle" x="192" y="75">CORS proxy</text>
+<line marker-end="url(#ar2)" stroke="#0284c7" stroke-width="2" x1="242" x2="278" y1="62" y2="62"></line>
+<rect fill="#fff" height="44" rx="9" stroke="#0ea5e9" stroke-width="2" width="110" x="280" y="40"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="335" y="60">Single full-document call</text><text fill="#475569" font-size="9" text-anchor="middle" x="335" y="75">Timeout retry</text>
+<line marker-end="url(#ar2)" stroke="#0284c7" stroke-width="2" x1="392" x2="428" y1="62" y2="62"></line>
+<rect fill="#f0f9ff" height="44" rx="9" stroke="#0284c7" stroke-width="2" width="104" x="430" y="40"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="482" y="60">Clause correction</text><text fill="#475569" font-size="9" text-anchor="middle" x="482" y="75">Local n-gram · zero API cost</text>
+<line marker-end="url(#ar2)" stroke="#0284c7" stroke-width="2" x1="536" x2="566" y1="62" y2="62"></line>
+<rect fill="#0284c7" height="36" rx="9" width="64" x="568" y="44"></rect><text fill="#fff" font-size="11" font-weight="700" text-anchor="middle" x="600" y="66">Dashboard</text>
+</svg>
+<figcaption>Flow: Upload → Proxy → Full document + retry → Clause correction → Dashboard</figcaption>
+</figure>
+<div class="blk"><div class="k">Key Technical Decisions</div><ul>
+<li><b>Data-driven model selection</b>: Fast full-document runs took 20–60 seconds, outperforming slower chunked flows at 3.5–23 minutes; the aggregation step also timed out and biased risk levels upward.</li>
+<li><b>Clause correction</b>: A weighted character n-gram method matches the model-cited clause back to the original text and only overwrites it when another clause has clearly stronger evidence. It adds zero API cost and corrected 10/10 tested cases.</li>
+<li>Built a local CORS proxy so the browser front end could access the backend AI service.</li>
+</ul></div>
+<div class="blk"><div class="k">Outcome</div><p>Converted contracts of ~50,000 characters into a table summary that points directly to risky clauses, reducing first-pass reading time. Clause verification runs locally with no additional API cost.</p></div>
+<div class="blk"><div class="k">Self-directed extension: RAG Prototype</div><p>After the first demo, I explored whether external grounding could make risk suggestions more defensible in a high-risk legal context. I curated case-law, statutes, and common procurement-risk material and used AI-assisted development to build a RAG prototype. This is a prototype, not a production-grade enterprise RAG system.</p></div>
+<div class="tags"><span class="tag">LLM Evaluation</span><span class="tag">RAG Prototype</span><span class="tag">n-gram Validation</span><span class="tag">Frontend Dashboard</span></div>
+<a class="src-link" data-repo-card="contract" href="#">Source Code ▸</a>
+</div></div>
+</div>
+<!-- Card 3 -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">3</div>
+<div class="ht"><h3>OCR Document Image Quality Checker</h3><div class="one">Starting from false positives and false negatives on real images, I repeatedly performed failure analysis and regression testing, eventually replacing an unstable hard-crop design with soft masks and per-metric ROIs.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Problem</div><p>OCR preprocessing initially looked like a simple set of checks for resolution, blur, exposure, skew, and text size. In practice, phone photos, scans, white/black desks, barcode/QR regions, different resolutions, and cluttered backgrounds caused many false positives and false negatives.</p></div>
+<div class="blk"><div class="k">Representative Debug</div><p>The first skew detector filtered Hough lines to ±30°, creating blind spots around 45° and 60°. After switching to orthogonal-axis mapping, real phone images still slipped through. The root cause turned out to be an overly high Hough threshold on high-resolution images, leaving no usable lines. I then introduced stepped thresholds and robust aggregation.</p></div>
+<figure class="diagram">
+<svg aria-label="Image Quality Checker architecture evolution" role="img" viewbox="0 0 640 132">
+<defs><marker id="arq" markerheight="9" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"></path></marker></defs>
+<rect fill="#fff" height="42" rx="9" stroke="#0ea5e9" stroke-width="2" width="138" x="16" y="46"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="85" y="64">V1: Fixed rules</text><text fill="#475569" font-size="9" text-anchor="middle" x="85" y="79">threshold / hard crop</text>
+<line marker-end="url(#arq)" stroke="#0284c7" stroke-width="2" x1="154" x2="214" y1="67" y2="67"></line>
+<rect fill="#f0f9ff" height="58" rx="9" stroke="#0284c7" stroke-width="2" width="168" x="218" y="38"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="302" y="59">Failure Analysis</text><text fill="#475569" font-size="9" text-anchor="middle" x="302" y="75">real + synthetic + regression</text>
+<line marker-end="url(#arq)" stroke="#0284c7" stroke-width="2" x1="386" x2="446" y1="67" y2="67"></line>
+<rect fill="#0284c7" height="58" rx="9" width="174" x="450" y="38"></rect><text fill="#fff" font-size="11" font-weight="700" text-anchor="middle" x="537" y="59">V3: Soft Mask</text><text fill="#e0f2fe" font-size="9" text-anchor="middle" x="537" y="75">per-metric ROI / abstain</text>
+</svg>
+<figcaption>Evolved from one brittle crop decision to per-metric ROI filtering</figcaption>
+</figure>
+<div class="blk"><div class="k">Architecture Evolution</div><p>The larger issue was not any single threshold, but that all quality metrics depended on the same hard-crop result. Small input differences could cause the crop ratio to jump, which in turn made blur, skew, and exposure measurements drift. I replaced that architecture with a soft mask so blur, skew, and text-size checks each use their own ROI filtering.</p></div>
+<div class="blk"><div class="k">Current Coverage</div><ul><li>Resolution、Blur、Brightness、Glare、Underexposure、Skew、Text size、Content size。</li><li>Real-image and synthetic testing, threshold analysis, debug metrics, and regression testing.</li><li>Known limitations and unresolved edge cases are documented instead of presenting the system as fully solved.</li></ul></div>
+<div class="tags"><span class="tag">OpenCV</span><span class="tag">Failure Analysis</span><span class="tag">Regression Testing</span><span class="tag">Soft Mask</span></div>
+</div></div>
+</div>
+<!-- Card 4 -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">4</div>
+<div class="ht"><h3>Telegram Product Bug Reporting Bot</h3><div class="one">Turned the fragmented habit of “message an engineer” into a low-friction event-driven workflow for reporting, archiving, assignment, status sync, and closure notifications—all within the team’s existing Telegram habits.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Problem</div><p>Bug reports were scattered across messages, email, and spreadsheets, while status tracking and closure notifications back to the original reporter often broke down.</p></div>
+<div class="blk"><div class="k">Solution</div><p>Used an FSM to guide report submission step by step, route records into product-specific Google Sheets, upload images, notify engineering groups with the responsible owner, and use Apps Script to detect status changes and automatically notify the original reporter, completing the loop.</p></div>
+<div class="blk"><div class="k">Product Design Trade-off</div><p>The company already used Telegram heavily, so I did not build a separate reporting app. The goal was to change the behavior from “message an engineer” to “message the bot,” rather than force everyone to learn a new ticket system. The real challenge was workflow design, not model complexity.</p></div>
+<figure class="diagram">
+<svg aria-label="Bug reporting closed-loop workflow" role="img" viewbox="0 0 640 185">
+<defs><marker id="ar3" markerheight="9" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"></path></marker></defs>
+<rect fill="#fff" height="46" rx="9" stroke="#0ea5e9" stroke-width="2" width="120" x="20" y="22"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="80" y="44">Tester</text><text fill="#475569" font-size="9" text-anchor="middle" x="80" y="59">Telegram form flow</text>
+<line marker-end="url(#ar3)" stroke="#0284c7" stroke-width="2" x1="140" x2="186" y1="45" y2="45"></line>
+<rect fill="#f0f9ff" height="46" rx="9" stroke="#0284c7" stroke-width="2" width="120" x="190" y="22"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="250" y="44">Bot (FSM)</text><text fill="#475569" font-size="9" text-anchor="middle" x="250" y="59">Guided · Routed</text>
+<line marker-end="url(#ar3)" stroke="#0284c7" stroke-width="2" x1="310" x2="356" y1="36" y2="30"></line>
+<line marker-end="url(#ar3)" stroke="#0284c7" stroke-width="2" x1="310" x2="356" y1="54" y2="60"></line>
+<rect fill="#fff" height="26" rx="8" stroke="#0ea5e9" stroke-width="1.6" width="130" x="360" y="14"></rect><text fill="#0f172a" font-size="10" text-anchor="middle" x="425" y="31">Image → ImgBB</text>
+<rect fill="#fff" height="26" rx="8" stroke="#0ea5e9" stroke-width="1.6" width="130" x="360" y="50"></rect><text fill="#0f172a" font-size="10" text-anchor="middle" x="425" y="67">Write to Google Sheet</text>
+<line marker-end="url(#ar3)" stroke="#0284c7" stroke-width="2" x1="490" x2="528" y1="45" y2="45"></line>
+<rect fill="#f0f9ff" height="46" rx="9" stroke="#0284c7" stroke-width="2" width="120" x="510" y="22"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="570" y="44">Engineering group</text><text fill="#475569" font-size="9" text-anchor="middle" x="570" y="59">Notify + owner</text>
+<path d="M570,68 L570,128 L80,128 L80,72" fill="none" marker-end="url(#ar3)" stroke="#0284c7" stroke-dasharray="4 3" stroke-width="1.6"></path>
+<rect fill="#f0f9ff" height="24" rx="6" width="220" x="210" y="116"></rect><text fill="#0369a1" font-size="9.5" text-anchor="middle" x="320" y="132">Apps Script watches closure → notifies original reporter</text>
+</svg>
+<figcaption>Report → Archive → Notify → Closure feedback</figcaption>
+</figure>
+<div class="blk"><div class="k">Key Technical Decisions</div><ul>
+<li><b>Config-driven design</b>: Products, modules, owners, and allowlists live in configuration sheets. New products can be added without code changes, with <code>/reload</code> hot reload without restart.</li>
+<li><b>Permission trade-off</b>: Cloud-drive permission constraints led to using an image host; notification scripts were moved from simple triggers to installable triggers because external requests were not allowed.</li>
+<li><b>Separation of concerns (SoC)</b>: The code is separated into configuration, data model, service, and conversation-flow layers for clearer maintenance.</li>
+</ul></div>
+<div class="blk"><div class="k">Outcome</div><p>Delivered a handoff-ready product with an architecture diagram, maintenance guide, from-scratch setup instructions, v1→v2 evolution notes, and a list of known limitations.</p></div>
+<div class="blk"><div class="k">Future</div><p>Future idea: let users describe issues in natural language, then have an LLM extract product, issue description, reproduction steps, and usage context into the existing workflow. Not yet implemented.</p></div>
+<div class="tags"><span class="tag">FSM</span><span class="tag">Automation</span><span class="tag">Google Sheet / Apps Script</span><span class="tag">Handoff-ready Product</span></div>
+<a class="src-link" data-repo-card="tgbot" href="#">Source Code ▸</a>
+</div></div>
+</div>
+<!-- Card 5 -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">5</div>
+<div class="ht"><h3>Assembly-Line Screw Error-Proofing System</h3><div class="one">Independently delivered an end-to-end assembly-line error-proofing PoC in 8 working days and distilled the approach into a reusable FSM example and SOP.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Problem</div><p>The assembly process lacked automatic checks, so missing or misplaced screws could cause a tray to be scrapped. Factory cameras also shift physically and hands occlude the tray, making fixed-coordinate logic unreliable.</p></div>
+<div class="blk"><div class="k">Solution</div><p>Trained one YOLO model for screws and another for hands, then connected them with a three-stage FSM (wait for pickup → enter tray → leave and settle) to compare the source bin with the newly occupied tray position and raise an alert on mismatch.</p></div>
+<figure class="diagram">
+<svg aria-label="Three-stage state machine" role="img" viewbox="0 0 640 120">
+<defs><marker id="ar4" markerheight="9" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"></path></marker></defs>
+<rect fill="#fff" height="48" rx="10" stroke="#0ea5e9" stroke-width="2" width="150" x="20" y="42"></rect><text fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle" x="95" y="63">STAGE 1 Wait for pickup</text><text fill="#475569" font-size="9.5" text-anchor="middle" x="95" y="79">Hand remains near bin</text>
+<text fill="#0284c7" font-size="8.5" text-anchor="middle" x="196" y="58">Dwell &gt; threshold</text>
+<line marker-end="url(#ar4)" stroke="#0284c7" stroke-width="2" x1="170" x2="222" y1="66" y2="66"></line>
+<rect fill="#f0f9ff" height="48" rx="10" stroke="#0284c7" stroke-width="2" width="150" x="226" y="42"></rect><text fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle" x="301" y="63">STAGE 2 Enter tray</text><text fill="#475569" font-size="9.5" text-anchor="middle" x="301" y="79">Hand enters tray area</text>
+<text fill="#0284c7" font-size="8.5" text-anchor="middle" x="402" y="58">Hand leaves tray</text>
+<line marker-end="url(#ar4)" stroke="#0284c7" stroke-width="2" x1="376" x2="428" y1="66" y2="66"></line>
+<rect fill="#fff" height="48" rx="10" stroke="#0ea5e9" stroke-width="2" width="186" x="432" y="42"></rect><text fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle" x="525" y="63">STAGE 3 Settle</text><text fill="#475569" font-size="9.5" text-anchor="middle" x="525" y="79">Picked bin vs new screw position</text>
+<path d="M525,90 C525,108 95,108 95,92" fill="none" marker-end="url(#ar4)" stroke="#94a3b8" stroke-dasharray="4 3" stroke-width="1.5"></path>
+<text fill="#94a3b8" font-size="9" text-anchor="middle" x="310" y="115">Reset after settlement; phase correlation restores tray coordinates</text>
+</svg>
+<figcaption>Three-stage FSM with transition conditions</figcaption>
+</figure>
+<div class="blk"><div class="k">Key Technical Decisions</div><ul>
+<li>Used phase correlation to estimate physical tray displacement, transform current detections back into the reference coordinate system, and solve camera-shift issues.</li>
+<li>The first hand model only labeled hands over the tray, so pickup actions near source bins were missed. I added “no-hand / pickup” cases and retrained the model.</li>
+<li>The same FSM approach was later reused on another PCB production line with dual geofences, demonstrating portability.</li>
+</ul></div>
+<div class="blk"><div class="k">Outcome</div><p>Delivered the full pipeline independently: extracted frames from real customer assembly footage, cropped trays, labeled and trained a screw-presence YOLO, labeled and trained a hand detector, then integrated both with the FSM. Around 650 training samples were used, with solid model performance.</p></div>
+<div class="tags"><span class="tag">YOLO</span><span class="tag">State Machine</span><span class="tag">Phase Correlation</span><span class="tag">Edge Computing</span></div>
+</div></div>
+</div>
+<!-- Card 6 -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">6</div>
+<div class="ht"><h3>CAD Drawing Version Difference Detection</h3><div class="one">Converted million-scale CAD drawings into structured data and used geometric fingerprints plus set operations to identify version differences in 4 minutes.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Problem</div><p>Engineering drawing revisions require version-by-version comparison. AutoCAD has built-in comparison, but it becomes extremely slow on very large drawings, while the files are too large for direct LLM input or real-time rendered comparison.</p></div>
+<div class="blk"><div class="k">Solution</div><p>Built a DWG→DXF→CSV conversion pipeline. Using ezdxf, I exploded nested blocks, discretized curves, split polylines, and flattened objects into relational tables. Each object received a geometric fingerprint, and set operations identified added, removed, and unchanged objects for visualization.</p></div>
+<figure class="diagram">
+<svg aria-label="CAD conversion pipeline and set operations" role="img" viewbox="0 0 640 130">
+<defs><marker id="ar5" markerheight="9" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"></path></marker></defs>
+<rect fill="#fff" height="38" rx="8" stroke="#0ea5e9" stroke-width="2" width="80" x="14" y="20"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="54" y="43">DWG→DXF</text>
+<line marker-end="url(#ar5)" stroke="#0284c7" stroke-width="2" x1="94" x2="124" y1="39" y2="39"></line>
+<rect fill="#f0f9ff" height="38" rx="8" stroke="#0284c7" stroke-width="2" width="150" x="126" y="20"></rect><text fill="#0f172a" font-size="10.5" font-weight="700" text-anchor="middle" x="201" y="36">ezdxf flattening</text><text fill="#475569" font-size="8.5" text-anchor="middle" x="201" y="50">explode / discretize / split</text>
+<line marker-end="url(#ar5)" stroke="#0284c7" stroke-width="2" x1="276" x2="306" y1="39" y2="39"></line>
+<rect fill="#fff" height="38" rx="8" stroke="#0ea5e9" stroke-width="2" width="130" x="308" y="20"></rect><text fill="#0f172a" font-size="10.5" font-weight="700" text-anchor="middle" x="373" y="36">Relational CSV</text><text fill="#475569" font-size="8.5" text-anchor="middle" x="373" y="50">Geometric fingerprint round(4)</text>
+<line marker-end="url(#ar5)" stroke="#0284c7" stroke-width="2" x1="438" x2="468" y1="39" y2="39"></line>
+<rect fill="#0284c7" height="38" rx="8" width="156" x="470" y="20"></rect><text fill="#fff" font-size="11" font-weight="700" text-anchor="middle" x="548" y="43">Set operations for diffs</text>
+<circle cx="250" cy="98" fill="#ef4444" fill-opacity="0.18" r="24" stroke="#ef4444" stroke-width="1.5"></circle><text fill="#b91c1c" font-size="9" text-anchor="middle" x="232" y="101">Old</text>
+<circle cx="290" cy="98" fill="#22c55e" fill-opacity="0.18" r="24" stroke="#16a34a" stroke-width="1.5"></circle><text fill="#15803d" font-size="9" text-anchor="middle" x="308" y="101">New</text>
+<text fill="#b91c1c" font-size="9.5" x="360" y="94">Removed = Old − New</text>
+<text fill="#15803d" font-size="9.5" x="360" y="106">Added = New − Old</text>
+<text fill="#475569" font-size="9.5" x="470" y="100">Unchanged = Intersection</text>
+</svg>
+<figcaption>Flattening pipeline + fingerprint set operations</figcaption>
+</figure>
+<div class="blk"><div class="k">Key Technical Decisions</div><ul>
+<li>Rejected text-summary-to-LLM and rendered-image comparison: the first loses information, while the second is too slow at million-object scale. Switched to fingerprint comparison as the scalable approach.</li>
+<li>Rounded fingerprint coordinates to four decimal places to eliminate false differences caused by floating-point noise.</li>
+<li>Debugged object-type-specific iteration behavior in the parsing library, which had once caused 1.14M objects to collapse to only 6 detected items.</li>
+</ul></div>
+<div class="blk"><div class="k">Outcome</div><p>Parsed 15.38M geometric objects in 4 minutes with a 99.7% capture rate and no out-of-memory failure, greatly reducing manual comparison time (estimated from the manual workflow).</p></div>
+<div class="tags"><span class="tag">CAD / DXF</span><span class="tag">Data Engineering</span><span class="tag">Hash Comparison</span><span class="tag">Performance</span></div>
+<p class="note">Client name anonymized for confidentiality.</p>
+</div></div>
+</div>
+<!-- Card 7 -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">7</div>
+<div class="ht"><h3>Document AI — Output Design and Capability Boundaries for Small OCR Models</h3><div class="one">Tested Markdown, HTML, JSON, and plain-text output strategies across documents, business cards, tables, invoices, and complex layouts to find a practical balance between structure fidelity, output length, and downstream parsing reliability.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Problem</div><p>When enterprises digitize paper documents, invoices, business cards, and tables often have irregular layouts that are difficult to parse automatically, forcing manual data entry.</p></div>
+<div class="blk"><div class="k">Solution</div><p>For documents, business cards, tables, and invoices, I designed minimal prompts and output formats aligned with the model’s strengths: Markdown + HTML tables + LaTeX for documents, flat JSON for business cards, HTML for tables, and either JSON or plain text for invoices. I also wrote backend handoff specifications.</p></div>
+<figure class="diagram">
+<svg aria-label="Output formats for four document types" role="img" viewbox="0 0 640 124">
+<rect fill="#f0f9ff" height="34" rx="8" stroke="#0284c7" stroke-width="1.6" width="96" x="14" y="46"></rect><text fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle" x="62" y="67">Four document types</text>
+<g fill="#0f172a" font-size="10">
+<rect fill="#fff" height="26" rx="7" stroke="#0ea5e9" stroke-width="1.4" width="150" x="170" y="6"></rect><text font-size="10" x="180" y="23">Document → MD + HTML + LaTeX</text>
+<rect fill="#fff" height="26" rx="7" stroke="#0ea5e9" stroke-width="1.4" width="150" x="170" y="38"></rect><text font-size="10" x="180" y="55">Business card → flat JSON</text>
+<rect fill="#fff" height="26" rx="7" stroke="#0ea5e9" stroke-width="1.4" width="150" x="170" y="70"></rect><text font-size="10" x="180" y="87">Table → HTML</text>
+<rect fill="#fff" height="22" rx="7" stroke="#0ea5e9" stroke-width="1.4" width="150" x="170" y="102"></rect><text font-size="10" x="180" y="117">Invoice → JSON / plain text</text>
+</g>
+<line stroke="#94a3b8" stroke-width="1.3" x1="110" x2="166" y1="63" y2="40"></line><line stroke="#94a3b8" stroke-width="1.3" x1="110" x2="166" y1="63" y2="80"></line>
+<line stroke="#0284c7" stroke-width="1.6" x1="320" x2="380" y1="50" y2="60"></line>
+<rect fill="#f0f9ff" height="34" rx="8" stroke="#0284c7" stroke-width="1.6" width="118" x="384" y="36"></rect><text fill="#0f172a" font-size="10" font-weight="700" text-anchor="middle" x="443" y="52">Positive rules + Schema</text><text fill="#475569" font-size="8.5" text-anchor="middle" x="443" y="64">OpenCV region cropping</text>
+<line stroke="#0284c7" stroke-width="1.6" x1="502" x2="540" y1="53" y2="53"></line>
+<rect fill="#0284c7" height="30" rx="8" width="86" x="542" y="38"></rect><text fill="#fff" font-size="10" font-weight="700" text-anchor="middle" x="585" y="57">Backend parsing</text>
+</svg>
+<figcaption>Document type → prompt strategy → stable output → backend parsing</figcaption>
+</figure>
+<div class="blk"><div class="k">Key Technical Decisions</div><ul>
+<li>Used positive rules and output schemas instead of negative prohibitions, enforcing structural consistency so the backend could parse results directly.</li>
+<li>Complex financial tables could overwhelm the small model, so I proposed backend-side OpenCV region cropping before inference.</li>
+<li>Added guard-string interception so fixed model error messages would not crash downstream parsing.</li>
+</ul></div>
+<div class="blk"><div class="k">Outcome</div><p>Delivered stable formats and specifications that the backend could parse directly, allowing data to enter the database without manual intervention. For expense invoices, key fields could be extracted automatically after upload; for business cards, sales teams could quickly build contact records. The prompts converged after more than 50 iterations.</p></div>
+<div class="tags"><span class="tag">Prompt Engineering</span><span class="tag">OCR</span><span class="tag">JSON Schema</span><span class="tag">Backend Handoff</span></div>
+</div></div>
+</div>
+</div><!-- /pillar-eng -->
+<!-- PILLAR: BUSINESS -->
+<div class="pillar" id="pillar-biz">
+<p class="sec-lead" style="margin-top:-12px">Engineering shows the ability to build; business thinking helps me clarify the problem, market, and feasibility before implementation.</p>
+<!-- Biz A -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">A</div>
+<div class="ht"><h3>FunNow Regional Operations Optimization Proposal</h3><div class="one">Structured diagnosis of operational bottlenecks across seven markets, with measurable KPIs designed to validate improvement.<span style="color:var(--slate-400)">(Interview take-home, 2026)</span></div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Background</div><p>FunNow operated across seven markets—Thailand, Malaysia, Hong Kong, the Philippines, Taiwan, Singapore, and Japan—while information and decision flows between headquarters and local teams depended heavily on manual processes.</p></div>
+<div class="blk"><div class="k">Diagnosis</div><p>The real bottleneck was not simply information flow, but that team leads had structurally become the group’s “manual aggregation engine” without a scalable alternative, quietly distorting strategic decision-making at the top.</p></div>
+<div class="blk"><div class="k">Proposal</div><p>Proposed a structured optimization framework and three measurable KPIs for decision speed, resource optimization, and manual work reduction.</p></div>
+<div class="blk"><div class="k">Why It’s Here</div><p>This take-home demonstrates structured thinking and a “think first, then execute” working style.</p></div>
+<div class="tags"><span class="tag">Operations Strategy</span><span class="tag">Bottleneck Diagnosis</span><span class="tag">KPI Design</span><span class="tag">Cross-market</span></div>
+</div></div>
+</div>
+<!-- Biz B -->
+<div class="card">
+<div class="card-head" onclick="toggleCard(this)">
+<div class="card-idx">B</div>
+<div class="ht"><h3>TuFlow — AI-Powered Soil Circularity Management</h3><div class="one">Matched excavated soil from construction sites with sites that need fill material, addressing a gap in disposal capacity and real-time matching.</div></div>
+<div class="chev">▾</div>
+</div>
+<div class="card-body"><div class="card-inner">
+<div class="blk"><div class="k">Context &amp; Insight</div><p>Taiwan’s 2026 soil-handling rules improved transparency through GPS and electronic manifests, but did not add enough disposal capacity or real-time matching, creating pressure on legal processing sites and increasing hauling costs and illegal-dumping incentives.</p></div>
+<div class="blk"><div class="k">Solution (3 modules)</div><ul>
+<li>AI regulatory Q&amp;A with cited legal sources.</li>
+<li>Smart matching and shortest-route visualization.</li>
+<li>Create electronic manifests from one spoken/text instruction with GPS integration.</li>
+</ul></div>
+<div class="blk"><div class="k">My Role</div><p>I led concept development, feasibility analysis (supply-demand validation, comparison with existing mechanisms, and regulatory feasibility), and the three-module solution design. Technical implementation was handled by the team’s CS members.</p></div>
+<div class="tags"><span class="tag">Market Insight</span><span class="tag">Policy Analysis</span><span class="tag">Feasibility Analysis</span><span class="tag">Solution Planning</span></div>
+<p class="note">Entry in a 2026 nationwide university Sustainability × Circular Economy × AI innovation competition.</p>
+</div></div>
+</div>
+<!-- ROI band -->
+<div class="roi-band">
+<h3>Quantified Outcome Examples</h3>
+<div class="roi-grid">
+<div class="roi-item"><div class="rk">Document Digitization</div><div class="rv">Public-sector OCR test: plain-text generation in seconds versus tens of minutes of manual processing (e.g. 9 seconds vs ~17 minutes for one form).</div></div>
+<div class="roi-item"><div class="rk">CAD Drawing Comparison</div><div class="rv">Automated parsing greatly reduced manual item-by-item comparison time (estimated from workflow analysis).</div></div>
+<div class="roi-item"><div class="rk">Visual Auditing</div><div class="rv">Reduced LLM inference cost to about TWD 0.0035 per transaction.</div></div>
+</div>
+</div>
+</div><!-- /pillar-biz -->
+</div>
+</section>
+<!-- PROJECT THREADS -->
+<section id="threads">
+<div class="wrap">
+<h2 class="sec-title">Project Threads — <span class="accent">From individual PoCs to a connectable enterprise AI workflow</span></h2>
+<p class="sec-lead">Many of these projects started independently, but together they address a common problem: how enterprises can turn messy inputs into reliable AI workflows whose outputs can be validated, tracked, and handed off.</p>
+<div class="thread-grid">
+<div class="thread-card">
+<h3>How the Projects Connect</h3>
+<p>Contract analysis began as “Document → LLM → Dashboard.” Real implementation exposed timeout, citation, and grounding problems, which led to model evaluation, n-gram source verification, and a self-directed RAG prototype.</p>
+<p>Document AI exposed another gap: enterprise inputs are not always clean text. They may be scanned PDFs, images, complex tables, or irregular layouts, making OCR quality checks, document parsing, and output schemas important upstream layers.</p>
+<p>The Telegram Bug Bot taught me a different side of workflow design: value comes not only from model output, but from whether events, states, notifications, ownership, and human feedback form a complete operational loop.</p>
+</div>
+<div class="thread-card">
+<h3>Possible Integrated Architecture</h3>
+<figure class="diagram" style="margin-top:10px">
+<svg aria-label="enterprise AI workflow thread" role="img" viewbox="0 0 460 330">
+<defs><marker id="art" markerheight="9" markerwidth="9" orient="auto" refx="7" refy="3"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"></path></marker></defs>
+<g fill="#0f172a" font-size="11" font-weight="700">
+<rect fill="#fff" height="38" rx="9" stroke="#0ea5e9" stroke-width="2" width="240" x="110" y="10"></rect><text text-anchor="middle" x="230" y="34">Input / Document / Image / Message</text>
+<line marker-end="url(#art)" stroke="#0284c7" stroke-width="2" x1="230" x2="230" y1="48" y2="74"></line>
+<rect fill="#f0f9ff" height="38" rx="9" stroke="#0284c7" stroke-width="2" width="240" x="110" y="78"></rect><text text-anchor="middle" x="230" y="102">Parse / Quality Gate / OCR</text>
+<line marker-end="url(#art)" stroke="#0284c7" stroke-width="2" x1="230" x2="230" y1="116" y2="142"></line>
+<rect fill="#fff" height="38" rx="9" stroke="#0ea5e9" stroke-width="2" width="240" x="110" y="146"></rect><text text-anchor="middle" x="230" y="170">Structure / Retrieval / LLM</text>
+<line marker-end="url(#art)" stroke="#0284c7" stroke-width="2" x1="230" x2="230" y1="184" y2="210"></line>
+<rect fill="#f0f9ff" height="38" rx="9" stroke="#0284c7" stroke-width="2" width="240" x="110" y="214"></rect><text text-anchor="middle" x="230" y="238">Deterministic Validation</text>
+<line marker-end="url(#art)" stroke="#0284c7" stroke-width="2" x1="230" x2="230" y1="252" y2="278"></line>
+<rect fill="#0284c7" height="38" rx="9" width="240" x="110" y="282"></rect><text fill="#fff" text-anchor="middle" x="230" y="306">Human Review / Workflow</text>
+</g>
+</svg>
+<figcaption>This is an architecture thread derived across projects; it does not mean the components have already been integrated into one production system.</figcaption>
+</figure>
+</div>
+</div>
+<div class="status-grid">
+<div class="status-box">
+<h3>Already Built / Direct Evidence</h3>
+<ul class="thread-list"><li>Contract risk demo: model evaluation, full-document vs chunking, and n-gram source verification.</li><li>RAG prototype: self-directed legal-knowledge grounding extension.</li><li>Document AI: small-model OCR, multi-format output, and downstream specifications.</li><li>Image Quality Checker: OCR quality gate, failure analysis, and soft-mask architecture.</li><li>Telegram workflow: FSM, archiving, assignment, status sync, and feedback notification.</li></ul>
+</div>
+<div class="status-box future">
+<h3>Future Architecture / Not Yet Implemented</h3>
+<ul class="thread-list"><li>Shared mailbox / mail trigger to start document workflows automatically.</li><li>Historical-contract embedding / cosine-similarity first-pass filter.</li><li>Phone photo → quality gate → OCR → RAG / LLM → legal review pipeline.</li><li>More complete risk gating, low-risk routing, and automated notifications.</li><li>LLM-based natural-language field extraction for the Bug Bot.</li></ul>
+</div>
+</div>
+</div>
+</section>
+<!-- SKILLS -->
+<section id="skills">
+<div class="wrap">
+<h2 class="sec-title">Skills — <span class="accent">Capabilities built through projects</span></h2>
+<p class="sec-lead">Rather than self-rating proficiency, this section lists areas backed by actual project or validation experience.</p>
+<div class="skill-grid">
+<div class="skill-cat core">
+<h3>Applied AI &amp; Model Integration <span class="badge">Core</span></h3>
+<div class="skill-row"><span>LLM / VLM Application &amp; Integration</span></div>
+<div class="skill-row"><span>Model Evaluation / Selection</span></div>
+<div class="skill-row"><span>Prompt Design / Structured Output</span></div>
+<div class="skill-row"><span>RAG Prototype / Grounding</span></div>
+<div class="skill-row"><span>Cost / Latency Trade-off</span></div>
+</div>
+<div class="skill-cat">
+<h3>Computer Vision &amp; Document AI</h3>
+<div class="skill-row"><span>YOLO Training / Inference</span></div>
+<div class="skill-row"><span>OpenCV / ROI / Geometry</span></div>
+<div class="skill-row"><span>Image Quality Analysis</span></div>
+<div class="skill-row"><span>OCR / Document Workflow</span></div>
+<div class="skill-row"><span>CAD / DXF Parsing</span></div>
+</div>
+<div class="skill-cat">
+<h3>Workflow &amp; System Integration</h3>
+<div class="skill-row"><span>Python</span></div>
+<div class="skill-row"><span>FSM / Event-driven Workflow</span></div>
+<div class="skill-row"><span>API Integration / Local Proxy</span></div>
+<div class="skill-row"><span>JSON Schema / Technical Spec</span></div>
+<div class="skill-row"><span>Telegram / Google Sheet / Apps Script</span></div>
+</div>
+<div class="skill-cat">
+<h3>Testing &amp; Problem Solving</h3>
+<div class="skill-row"><span>Failure Analysis / Root-cause Diagnosis</span></div>
+<div class="skill-row"><span>Benchmark Design / Regression Testing</span></div>
+<div class="skill-row"><span>Requirement Decomposition</span></div>
+<div class="skill-row"><span>AI-assisted Development &amp; Validation</span></div>
+<div class="skill-row"><span>Technical Documentation</span></div>
+</div>
+<div class="skill-cat core">
+<h3>Business &amp; Product Thinking <span class="badge">Differentiator</span></h3>
+<div class="skill-row"><span>Problem Framing / Process Design</span></div>
+<div class="skill-row"><span>ROI / Cost / Efficiency Analysis</span></div>
+<div class="skill-row"><span>User Adoption / Workflow Friction</span></div>
+<div class="skill-row"><span>Cross-functional / Cross-market Collaboration</span></div>
+</div>
+<div class="skill-cat">
+<h3>Data &amp; Analytics</h3>
+<div class="skill-row"><span>Data Cleaning / Mapping / Quality Control</span></div>
+<div class="skill-row"><span>GA / Ahrefs</span></div>
+<div class="skill-row"><span>Looker Studio / Power BI</span></div>
+</div>
+</div>
+<div class="certs">
+<div class="cert"><div class="ci">T</div><div><div class="ct">TOEIC 815</div><div class="cs">English communication</div></div></div>
+<div class="cert"><div class="ci">L</div><div><div class="ct">Linguaskill B2</div><div class="cs">CEFR B2</div></div></div>
+<div class="cert"><div class="ci">N</div><div><div class="ct">NVIDIA DLI — Rapid Application Development with LLMs</div><div class="cs">Certificate of Competency・2026/05</div></div></div>
+</div>
+</div>
+</section>
+<!-- EXPERIENCE -->
+<section id="exp">
+<div class="wrap">
+<h2 class="sec-title">Experience — <span class="accent">Cross-disciplinary path: Marketing → Data → AI</span></h2>
+<div class="timeline">
+<div class="tl-item">
+<div class="role">Leda Tech ・ AI Engineer Intern</div>
+<div class="meta">2025/09 – 2026/06 | Taoyuan · Hybrid</div>
+<p>Contributed to and completed multiple Applied AI PoCs spanning Computer Vision, LLM/VLM, Document AI, workflow automation, model evaluation, and API/output specifications. Most engineering projects in this portfolio originated from this experience.</p>
+</div>
+<div class="tl-item">
+<div class="role">Patients Force ・ Data Analyst Intern</div>
+<div class="meta">2025/06 – 2025/09 | Taipei</div>
+<p>Handled cleaning and label mapping for sensitive, high-complexity data, turning messy raw business data into a reliable foundation for downstream decision-making.</p>
+</div>
+<div class="tl-item">
+<div class="role">Whoscall ・ Digital Marketing Intern</div>
+<div class="meta">2024/07 – 2025/03 | Taipei</div>
+<p>Coordinated content production and timelines across Taiwan, Thailand, Japan, Hong Kong, and Macau; drove campaign execution during Double 11; and used GA, Ahrefs, Looker Studio, and Power BI to turn performance data into business insights.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact">
+<div class="wrap">
+<div class="about-card">
+<h2>Contact</h2>
+<p>If you are interested in these projects, technical trade-offs, or future directions, feel free to reach out by email or GitHub.</p>
+<div class="contact-row">
+<a href="mailto:sc.chen1013@gmail.com">✉ sc.chen1013@gmail.com</a>
+<a data-repo="" href="#">◎ GitHub (link pending)</a>
+<a data-resume="" href="#">⬇ Download Resume PDF</a>
+</div>
+</div>
+</div>
+</section>
+<footer>© 2026 Jacky Chen · Turning business problems into practical AI solutions</footer>
+<button aria-label="Back to top" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  /* ============================================================
+     ★ 可編輯設定區（只改這三行就好，不用動其他程式碼）★
+     - github：你的 GitHub 連結；留空字串 "" 則按鈕顯示「待補連結」
+     - resume：履歷檔名（把 PDF 放在與本檔同一資料夾），或完整網址；留空則隱藏按鈕
+     - email ：聯絡信箱
+     ============================================================ */
+  const SITE_CONFIG = {
+    github: "https://github.com/tomato1013",   // GitHub 主頁（顯示於「聯絡我」）
+    resume: "resume_Jacky.pdf",                                 // 履歷檔名，例如 "resume.pdf"；留空則隱藏按鈕
+    email:  "sc.chen1013@gmail.com",
+    repos: {                                    // 各專案原始碼連結（留空則該卡不顯示按鈕）
+      retail:   "https://github.com/tomato1013/Smart-Retail-Monitor",  // 智慧驛站
+      contract: "https://github.com/tomato1013/contract_assistant",    // 合約風險分析
+      tgbot:    "https://github.com/tomato1013/telegram-BOT"           // Telegram 機器人
+    }
+  };
+
+  function applyConfig(){
+    var mail=document.querySelector('a[href^="mailto"]');
+    if(mail&&SITE_CONFIG.email){ mail.href="mailto:"+SITE_CONFIG.email; mail.textContent="✉ "+SITE_CONFIG.email; }
+    var repo=document.querySelector('[data-repo]');
+    if(repo){
+      if(SITE_CONFIG.github){ repo.href=SITE_CONFIG.github; repo.target="_blank"; repo.rel="noopener"; repo.textContent="◎ GitHub"; }
+      else{ repo.style.display="none"; }   // 沒填就先隱藏，避免出現「待補連結」
+    }
+    var res=document.querySelector('[data-resume]');
+    if(res){
+      if(SITE_CONFIG.resume){ res.href=SITE_CONFIG.resume; res.setAttribute("download",""); res.textContent="⬇ Download Resume PDF"; }
+      else{ res.style.display="none"; }
+    }
+    var repos=SITE_CONFIG.repos||{};
+    document.querySelectorAll('[data-repo-card]').forEach(function(a){
+      var url=repos[a.getAttribute('data-repo-card')];
+      if(url){ a.href=url; a.target="_blank"; a.rel="noopener"; }
+      else{ a.style.display="none"; }
+    });
+  }
+  applyConfig();
+
+  function setPillar(which){
+    var eng=document.getElementById('pillar-eng'), biz=document.getElementById('pillar-biz');
+    var te=document.getElementById('tab-eng'), tb=document.getElementById('tab-biz');
+    if(which==='biz'){biz.classList.add('show');eng.classList.remove('show');tb.classList.add('active');te.classList.remove('active');}
+    else{eng.classList.add('show');biz.classList.remove('show');te.classList.add('active');tb.classList.remove('active');}
+    document.getElementById('navmenu').classList.remove('open');
+  }
+  function toggleCard(head){
+    var card=head.parentElement, body=head.nextElementSibling;
+    if(card.classList.contains('open')){card.classList.remove('open');body.style.maxHeight=null;}
+    else{card.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
+  }
+  // recalc open card height on resize
+  window.addEventListener('resize',function(){
+    document.querySelectorAll('.card.open .card-body').forEach(function(b){b.style.maxHeight=b.scrollHeight+'px';});
+  });
+  // back to top visibility
+  window.addEventListener('scroll',function(){
+    document.getElementById('toTop').classList.toggle('show',window.scrollY>500);
+  });
+  // close mobile menu on link click
+  document.querySelectorAll('#navmenu a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('navmenu').classList.remove('open');});
+  });
+</script>
+</body>
+</html>
