@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>陳士杰 Jacky Chen ｜ AI 解決方案 × 商業落地</title>
-<meta name="description" content="企管背景的 AI 解決方案實作者：能把商業問題端到端做成可落地的 AI 方案，並用成本與工時衡量它。">
+<title>陳士杰 Jacky Chen ｜ AI Engineer</title>
+<meta name="description" content="陳士杰 Jacky Chen 作品集：VLM、Computer Vision、LLM 的模型整合、系統開發、測試與失敗分析。">
 <style>
   :root{
     --sky-50:#f0f9ff; --sky-100:#e0f2fe; --sky-200:#bae6fd; --sky-300:#7dd3fc;
@@ -48,6 +48,7 @@
   .hero .eyebrow{display:inline-block;background:var(--sky-100);color:var(--sky-700);font-weight:700;font-size:.82rem;padding:6px 14px;border-radius:999px;letter-spacing:.5px;margin-bottom:22px}
   .hero h1{font-size:2.5rem;line-height:1.3;font-weight:800;letter-spacing:-1px;margin-bottom:20px}
   .hero h1 .hl{background:linear-gradient(120deg,var(--sky-500),var(--sky-700));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .h1-sub{font-size:1.3rem;font-weight:700;color:var(--sky-700);letter-spacing:.5px;margin:-8px 0 18px}
   .hero .sub{font-size:1.12rem;color:var(--slate-600);max-width:62ch;margin-bottom:36px}
   .hero-top{display:flex;gap:44px;align-items:center;margin-bottom:8px}
   .hero-left{flex:1.65;min-width:0}
@@ -215,11 +216,10 @@
     <button class="nav-toggle" aria-label="選單" onclick="document.getElementById('navmenu').classList.toggle('open')">☰</button>
     <ul id="navmenu">
       <li><a href="#hero">首頁</a></li>
-      <li><a href="#work">作品</a></li>
-      <li><a href="#threads">專案脈絡</a></li>
+      <li><a href="#about">關於我</a></li>
+      <li><a href="#work">技術專案</a></li>
       <li><a href="#skills">能力</a></li>
       <li><a href="#exp">經歷</a></li>
-      <li><a href="#about">關於我</a></li>
       <li><a href="#contact">聯絡</a></li>
       <li class="lang-switch"><a href="en.html">EN</a></li>
     </ul>
@@ -231,11 +231,13 @@
   <div class="wrap">
     <div class="hero-top">
       <div class="hero-left">
-        <h1><span class="hl">拆解商業問題，快速實作、驗證與迭代 AI 解決方案</span></h1>
-        <p class="sub">企管系的 AI 應用工程師，專案橫跨 LLM／VLM、Computer Vision、Document AI、Workflow Automation 與資料處理。比起單純堆疊模型或工具，我更重視問題拆解、技術取捨、測試驗證，以及找出方案在真實環境中失效的原因，再持續調整與改善。</p>
+        <span class="eyebrow">AI Engineer</span>
+        <h1><span class="hl">開發可驗證的 AI 系統</span></h1>
+        <p class="h1-sub">VLM ・ Computer Vision ・ LLM</p>
+        <p class="sub">於 Leda Tech 完成 YOLO 產線防錯、VLM 行為稽核、OCR 品質檢測等企業 AI 專案，專注模型整合、測試與失敗分析。</p>
       </div>
       <div class="hero-art" aria-hidden="false">
-        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="從商業問題到可落地方案的端到端流程示意">
+        <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="從問題拆解到可驗證系統的工程流程">
           <defs>
             <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset="1" stop-color="#f0f9ff"/></linearGradient>
             <marker id="ha" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#38bdf8"/></marker>
@@ -247,25 +249,25 @@
           <path d="M150,248 C232,258 218,296 205,316" fill="none" stroke="#7dd3fc" stroke-width="2.5" marker-end="url(#ha)"/>
           <g>
             <rect x="36" y="40" width="150" height="48" rx="13" fill="#fff" stroke="#7dd3fc" stroke-width="2"/>
-            <text x="111" y="70" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">商業問題</text>
+            <text x="111" y="70" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">問題拆解</text>
             <rect x="200" y="120" width="150" height="48" rx="13" fill="#fff" stroke="#7dd3fc" stroke-width="2"/>
-            <text x="275" y="150" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">資料蒐集、清洗</text>
+            <text x="275" y="150" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">資料與模型整合</text>
             <rect x="36" y="200" width="150" height="48" rx="13" fill="#fff" stroke="#7dd3fc" stroke-width="2"/>
-            <text x="111" y="230" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">解方設計、取捨</text>
+            <text x="111" y="230" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">測試與失敗分析</text>
             <rect x="200" y="280" width="160" height="52" rx="14" fill="#0284c7"/>
-            <text x="280" y="312" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">可運行 PoC</text>
+            <text x="280" y="312" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">可驗證的系統</text>
           </g>
         </svg>
       </div>
     </div>
     <div class="stats">
-      <div class="stat"><div class="num">8 天</div><div class="label">獨立完成並交付一套產線防錯系統 PoC（工作天）</div></div>
-      <div class="stat"><div class="num">−73%</div><div class="label">將即時影像稽核的 LLM 推論成本，較原方案降低約七成</div></div>
-      <div class="stat"><div class="num">1,538 萬</div><div class="label">工業圖檔物件自動化解析，4 分鐘完成、捕獲率 99.7%</div></div>
+      <div class="stat"><div class="num">8 天</div><div class="label">獨立完成產線防錯 PoC：YOLO 訓練到狀態機整合（工作天）</div></div>
+      <div class="stat"><div class="num">−73%</div><div class="label">智慧驛站稽核：單次 VLM 推論成本較原方案降低約七成</div></div>
+      <div class="stat"><div class="num">1,538 萬</div><div class="label">CAD 圖檔幾何物件解析，4 分鐘完成、捕獲率 99.7%</div></div>
     </div>
     <div class="cta-row">
-      <a class="btn btn-primary" href="#work" onclick="setPillar('eng')">看工程落地 ▸</a>
-      <a class="btn btn-ghost" href="#work" onclick="setPillar('biz')">看商業策略 ▸</a>
+      <a class="btn btn-primary" href="#work" onclick="setPillar('eng')">看技術專案 ▸</a>
+      <a class="btn btn-ghost" href="#work" onclick="setPillar('biz')">提案與競賽 ▸</a>
       <a class="btn btn-ghost" href="#contact">聯絡我 ▸</a>
     </div>
   </div>
@@ -275,12 +277,11 @@
 <section id="about">
   <div class="wrap">
     <h2 class="sec-title">關於我</h2>
-    <p class="sec-lead">從商業理解到 AI 實作，持續累積跨域專案經驗。</p>
+    <p class="sec-lead">AI Engineer｜VLM、Computer Vision、LLM</p>
     <div class="about-prose">
-      <p>我是陳士杰，國立中央大學企管系畢業，經歷橫跨行銷、資料分析與 AI 工程，目前主要專注在 Applied AI / AI Application 的實作。</p>
-      <p>我擅長把模糊的商業或流程問題拆成可以驗證的技術任務，並透過 Python、LLM／VLM、Computer Vision、API、狀態機與資料處理快速完成 PoC。過去做過產線防錯、智慧驛站行為稽核、合約風險分析、Document AI、OCR 影像品質檢核與 Workflow Automation 等專案。</p>
-      <p>企管背景讓我習慣從使用情境、成本與流程價值出發思考，提出使用者會「想用」的解決方案，而工程實作則讓我能真正把想法做出來，做出真正「有用」、能提升效率的工具。比起單純追求技術複雜度，我更在意方案能不能被驗證、出問題時能不能找到原因，以及最後能不能真的解決原本的問題。</p>
-      <div class="edu-line">🎓 國立中央大學 ・ 企業管理學系</div>
+      <p>我是陳士杰，曾在樂達創意科技擔任 AI Engineer Intern 約 10 個月，參與 7 個企業 AI 專案，涵蓋 Computer Vision（YOLO）、VLM、LLM、OCR、狀態機事件邏輯，以及 API 與 JSON Schema 規格。</p>
+      <p>我的工作方法是先把問題拆成可量測的任務，定義介面與驗收標準，實作後用真實資料測試，再從失敗案例找出根因、修正並回歸驗證。開發時以 Claude Code、Codex 等 AI coding agent 協作，由我負責系統拆解、規格、測試設計與技術決策。</p>
+      <div class="edu-line">🎓 國立中央大學 ・ 企業管理學系（2021–2026）</div>
     </div>
   </div>
 </section>
@@ -288,11 +289,11 @@
 <!-- WORK -->
 <section id="work">
   <div class="wrap">
-    <h2 class="sec-title">作品 — <span class="accent">工程落地 × 商業策略</span></h2>
-    <p class="sec-lead">兩種能力撐起同一個定位：一邊是把方案做出來的工程實作，一邊是動手前把問題想清楚的商業判斷。</p>
+    <h2 class="sec-title">技術專案 — <span class="accent">Leda Tech AI Engineer Intern</span></h2>
+    <p class="sec-lead">每個專案依「問題 → 我的角色 → 做法 → 失敗與根因 → 結果」整理。</p>
     <div class="tabs">
-      <button class="tab active" id="tab-eng" onclick="setPillar('eng')">工程落地</button>
-      <button class="tab" id="tab-biz" onclick="setPillar('biz')">商業策略</button>
+      <button class="tab active" id="tab-eng" onclick="setPillar('eng')">技術專案</button>
+      <button class="tab" id="tab-biz" onclick="setPillar('biz')">提案與競賽</button>
     </div>
 
     <!-- PILLAR: ENGINEERING -->
@@ -302,12 +303,49 @@
       <div class="card">
         <div class="card-head" onclick="toggleCard(this)">
           <div class="card-idx">1</div>
+          <div class="ht"><h3>產線螺絲組裝防錯系統</h3><div class="one">8 個工作天全流程獨立交付的產線防錯 PoC，並沉澱出一套可複用於工業偵錯的 FSM 範例與 SOP。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">問題</div><p>螺絲組裝目前沒有自動檢查機制，一旦漏放或錯放，整個料盤就報廢，是良率與成本的痛點；而實體廠房相機會物理位移、手部會遮擋料盤，固定座標的判定方式很快就會失準。導入 AI 與自動化偵錯，可即時攔截錯誤、提升良率並降低報廢花費。</p></div>
+          <div class="blk"><div class="k">方案</div><p>自訓 YOLO 偵測料盤上的螺絲、另訓手部物件偵測模型，搭配三階段狀態機（等待取料 → 進入料盤 → 離開結算），比對「取了哪個料盒」與「料盤實際多了哪個孔位的螺絲」是否一致，不一致即報警。</p></div>
+          <div class="blk"><div class="k">我的角色</div><p>全流程獨立完成：影片轉影格、資料標註、兩個 YOLO 模型訓練、狀態機與影像對齊整合。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 120" role="img" aria-label="三階段狀態機">
+              <defs><marker id="ar4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="20" y="42" width="150" height="48" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="95" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 1 等待取料</text><text x="95" y="79" text-anchor="middle" font-size="9.5" fill="#475569">手在料盒停留</text>
+              <text x="196" y="58" text-anchor="middle" font-size="8.5" fill="#0284c7">停留 &gt; 門檻</text>
+              <line x1="170" y1="66" x2="222" y2="66" stroke="#0284c7" stroke-width="2" marker-end="url(#ar4)"/>
+              <rect x="226" y="42" width="150" height="48" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="301" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 2 進入料盤</text><text x="301" y="79" text-anchor="middle" font-size="9.5" fill="#475569">手入料盤區</text>
+              <text x="402" y="58" text-anchor="middle" font-size="8.5" fill="#0284c7">手離開料盤</text>
+              <line x1="376" y1="66" x2="428" y2="66" stroke="#0284c7" stroke-width="2" marker-end="url(#ar4)"/>
+              <rect x="432" y="42" width="186" height="48" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="525" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 3 離開結算</text><text x="525" y="79" text-anchor="middle" font-size="9.5" fill="#475569">取料盒 vs 新增孔位比對</text>
+              <path d="M525,90 C525,108 95,108 95,92" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar4)"/>
+              <text x="310" y="115" text-anchor="middle" font-size="9" fill="#94a3b8">結算後重置；相位相關性對齊還原料盤座標</text>
+            </svg>
+            <figcaption>三階段狀態機，標註各狀態切換條件</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li>用相位相關性（phase correlation）計算料盤的物理位移，把當前偵測座標還原回基準座標系再比對孔位，解決相機位移問題。</li>
+            <li>手部模型初版只標了料盤上的手，導致拿料盒時偵測不到；重新補標「無手／拿料」情境後重訓修正。</li>
+            <li>同一套狀態機方法論後續複用到另一條 PCB 板產線（雙電子圍籬），驗證了可移植性。</li>
+          </ul></div>
+          <div class="blk"><div class="k">結果</div><p>全流程獨立交付：從客戶提供的實際組裝影片出發，轉影格、裁切料盤，標記並訓練判斷孔位是否有螺絲的 YOLO，再標記並訓練偵測手部的 YOLO，最後串接狀態機完成防錯系統；約 650 筆資料訓練、模型表現良好。</p></div>
+          <div class="tags"><span class="tag">YOLO</span><span class="tag">狀態機</span><span class="tag">相位相關性對齊</span><span class="tag">邊緣運算</span></div>
+        </div></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">2</div>
           <div class="ht"><h3>智慧驛站包裹出庫稽核系統</h3><div class="one">以視覺語言模型取代人工客服的取貨稽核判斷，並在客戶反映成本後，透過模型替換與提示工程把推論成本降約七成。</div></div>
           <div class="chev">▾</div>
         </div>
         <div class="card-body"><div class="card-inner">
-          <div class="blk"><div class="k">痛點</div><p>無人取貨站要確認「取貨者有沒有真的到掃描儀掃描才離開」，原本仰賴人工客服盯著畫面判斷，難以規模化；而真實人流的動線與遮擋，也讓純規則難以涵蓋。</p></div>
+          <div class="blk"><div class="k">問題</div><p>無人取貨站要確認「取貨者有沒有真的到掃描儀掃描才離開」，原本仰賴人工客服盯著畫面判斷，難以規模化；而真實人流的動線與遮擋，也讓純規則難以涵蓋。</p></div>
           <div class="blk"><div class="k">方案</div><p>先以 Gemini 視覺語言模型搭配電子圍籬兩階段狀態機，自動完成判斷、取代人工客服——Stage 1 在貨架圍籬偵測取貨、Stage 2 在掃描儀圍籬偵測掃描，物件偵測抓出人的座標後自寫座標碰撞判定，再交由 VLM 做語意確認。客戶反映 API 成本偏高後，改用 Qwen-VL，重新進行提示工程並以 45 個場景重測，綜合成本與成效選出最適模型。</p></div>
+          <div class="blk"><div class="k">我的角色</div><p>實作稽核 PoC，並負責後續的模型替換評估、ROI 裁切、Prompt 調整與容錯機制。</p></div>
           <figure class="diagram">
             <svg viewBox="0 0 640 165" role="img" aria-label="兩階段狀態機流程圖">
               <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
@@ -338,23 +376,52 @@
             <li><b>穩定度</b>：監視器視角下人物偵測會斷續，加入「允許漏抓不中斷計時」的容錯與 LLM 冷卻機制，避免重複觸發。</li>
             <li><b>備援設計</b>：另實作語音聲紋比對，定位為 VLM 故障或網路異常時，輔助現場客服判斷的備援路徑。</li>
           </ul></div>
-          <div class="blk"><div class="k">商業成果</div><p>單筆交易推論成本約 TWD 0.0035；換用輕量模型後較原 Gemini 方案約降 73%。在 45 個有效測試場景上完成驗證並產出測試報告。</p></div>
+          <div class="blk"><div class="k">結果</div><p>單筆交易推論成本約 TWD 0.0035；換用輕量模型後較原 Gemini 方案約降 73%。在 45 個有效測試場景上完成驗證並產出測試報告。</p></div>
           <div class="tags"><span class="tag">VLM</span><span class="tag">狀態機</span><span class="tag">成本優化</span><span class="tag">邊緣影像</span></div>
           <a class="src-link" data-repo-card="retail" href="#">原始碼 ▸</a>
         </div></div>
       </div>
 
-      <!-- Card 2 -->
+      <!-- Card 3 -->
       <div class="card">
         <div class="card-head" onclick="toggleCard(this)">
-          <div class="card-idx">2</div>
+          <div class="card-idx">3</div>
+          <div class="ht"><h3>OCR 文件影像品質檢核</h3><div class="one">從真實照片的 false positive / false negative 出發，反覆做 failure analysis 與 regression testing，最後把不穩定的 hard crop 重構為 soft mask + per-metric ROI。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">問題</div><p>OCR 前處理一開始看似只是檢查解析度、模糊、曝光、傾斜與文字大小，但手機照片、掃描檔、白／黑桌、條碼 QR、不同解析度與複雜背景會讓同一個 metric 出現大量 false positive / false negative。</p></div>
+          <div class="blk"><div class="k">我的角色</div><p>負責檢測指標設計、真實與合成資料測試、失敗分析與架構重構。</p></div>
+          <div class="blk"><div class="k">代表性 Debug</div><p>Skew 第一版以 ±30° 過濾 Hough line，導致 45°／60° 文件出現盲區；改成 orthogonal-axis mapping 後，真實手機照片仍漏判，進一步定位到高解析度下 Hough threshold 過高、根本抓不到線，之後改為階梯式 threshold 與 robust aggregation。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 132" role="img" aria-label="Image Quality Checker architecture evolution">
+              <defs><marker id="arq" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="16" y="46" width="138" height="42" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="85" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">V1：固定規則</text><text x="85" y="79" text-anchor="middle" font-size="9" fill="#475569">threshold / hard crop</text>
+              <line x1="154" y1="67" x2="214" y2="67" stroke="#0284c7" stroke-width="2" marker-end="url(#arq)"/>
+              <rect x="218" y="38" width="168" height="58" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="302" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Failure Analysis</text><text x="302" y="75" text-anchor="middle" font-size="9" fill="#475569">real + synthetic + regression</text>
+              <line x1="386" y1="67" x2="446" y2="67" stroke="#0284c7" stroke-width="2" marker-end="url(#arq)"/>
+              <rect x="450" y="38" width="174" height="58" rx="9" fill="#0284c7"/><text x="537" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">V3：Soft Mask</text><text x="537" y="75" text-anchor="middle" font-size="9" fill="#e0f2fe">per-metric ROI / abstain</text>
+            </svg>
+            <figcaption>從脆弱的單一裁切決策，演進成各品質指標各自使用 ROI 的架構</figcaption>
+          </figure>
+          <div class="blk"><div class="k">架構演進</div><p>進一步定位到根本問題：所有品質指標共用同一個硬裁切結果，相近文件可能因些微差異在不同裁切比例間跳動，連帶讓 blur、skew、exposure 的結果一起漂移。最後改成 soft mask，由 blur、skew、text-size 各自使用 ROI 過濾背景，不再讓單一裁切決策支配全部指標。</p></div>
+          <div class="blk"><div class="k">目前涵蓋</div><ul><li>Resolution、Blur、Brightness、Glare、Underexposure、Skew、Text size、Content size。</li><li>真實影像 + 合成資料測試、threshold analysis、debug metrics、regression testing。</li><li>記錄已知限制與 edge cases，作為後續迭代依據。</li></ul></div>
+          <div class="tags"><span class="tag">OpenCV</span><span class="tag">Failure Analysis</span><span class="tag">Regression Testing</span><span class="tag">Soft Mask</span></div>
+        </div></div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">4</div>
           <div class="ht"><h3>合約風險分析工具</h3><div class="one">先做模型選型方法論，再用「快模型全文 + 本機條號回填」把大型合約分析從分鐘級且不穩，壓到 20–60 秒可用。</div></div>
           <div class="chev">▾</div>
         </div>
         <div class="card-body"><div class="card-inner">
-          <div class="blk"><div class="k">痛點</div><p>法務人員判定合約風險時，得逐條讀完動輒五萬字的合約，耗時又容易遺漏；而把整份合約一次送進分析服務，又會撞到約 100 秒的閘道逾時（504），模型也常把風險條款的條號標錯位置、影響可信度。</p></div>
+          <div class="blk"><div class="k">問題</div><p>法務人員判定合約風險時，得逐條讀完動輒五萬字的合約，耗時又容易遺漏；而把整份合約一次送進分析服務，又會撞到約 100 秒的閘道逾時（504），模型也常把風險條款的條號標錯位置、影響可信度。</p></div>
           <div class="blk"><div class="k">方案</div><p>系統性評測 10 個大型語言模型在「全文單次」與「分段彙整」兩種策略下的表現，整理時間、條號命中與風險等級分佈，據此選出最佳解：快模型全文單次 + 逾時自動重試，搭配純本機的「條號回填校驗」。前端是一頁風險儀表板。</p></div>
-          <div class="blk"><div class="k">使用情境</div><p>這個 Demo 的目的不是讓 AI 取代法務，而是先完成第一輪風險整理、標示值得注意的條文與原文位置，讓法務能更快聚焦重點並保留最終判斷。</p></div>
+          <div class="blk"><div class="k">我的角色</div><p>設計並執行 10 個 LLM 的評測，實作條號回填校驗、儀表板與本機代理；RAG prototype 為自行延伸。</p></div>
+          <div class="blk"><div class="k">使用情境</div><p>由 AI 完成第一輪風險整理並標出條文與原文位置，法務直接聚焦重點、做最終判斷。</p></div>
           <figure class="diagram">
             <svg viewBox="0 0 640 120" role="img" aria-label="合約分析資料流">
               <defs><marker id="ar2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
@@ -375,77 +442,10 @@
             <li><b>條號回填</b>：用加權字元 n-gram 把模型自報的條號回原文比對，只有在別條證據明顯較強時才覆寫，零 API 成本、不破壞正確項，實測 10/10 修正。</li>
             <li>自建本機 CORS 代理，解決瀏覽器無法直連後端的問題。</li>
           </ul></div>
-          <div class="blk"><div class="k">商業成果</div><p>把整份動輒五萬字的合約，壓縮成標明風險條文位置的表格摘要，讓法務能直接跳到風險條文查看，大幅降低逐條閱讀的時間；條號校驗純本機、不增加任何 API 費用。</p></div>
-          <div class="blk"><div class="k">後續自行延伸：RAG Prototype</div><p>第一版 Demo 完成後，進一步思考單靠模型自身知識不足以支撐高風險法務情境，因此整理判例、法條與常見採購風險資料，透過 AI-assisted development 建立 RAG prototype，測試外部 grounding 是否能讓風險提示更有依據。此延伸為 prototype，非 production-grade enterprise RAG。</p></div>
+          <div class="blk"><div class="k">結果</div><p>把整份動輒五萬字的合約，壓縮成標明風險條文位置的表格摘要，讓法務能直接跳到風險條文查看，大幅降低逐條閱讀的時間；條號校驗純本機、不增加任何 API 費用。</p></div>
+          <div class="blk"><div class="k">後續自行延伸：RAG Prototype</div><p>第一版 Demo 完成後，進一步思考單靠模型自身知識不足以支撐高風險法務情境，因此整理判例、法條與常見採購風險資料，建立 RAG prototype，以外部 grounding 讓風險提示更有依據。</p></div>
           <div class="tags"><span class="tag">LLM 選型</span><span class="tag">RAG Prototype</span><span class="tag">n-gram 校驗</span><span class="tag">前端儀表板</span></div>
           <a class="src-link" data-repo-card="contract" href="#">原始碼 ▸</a>
-        </div></div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="card">
-        <div class="card-head" onclick="toggleCard(this)">
-          <div class="card-idx">3</div>
-          <div class="ht"><h3>OCR 文件影像品質檢核</h3><div class="one">從真實照片的 false positive / false negative 出發，反覆做 failure analysis 與 regression testing，最後把不穩定的 hard crop 重構為 soft mask + per-metric ROI。</div></div>
-          <div class="chev">▾</div>
-        </div>
-        <div class="card-body"><div class="card-inner">
-          <div class="blk"><div class="k">問題</div><p>OCR 前處理一開始看似只是檢查解析度、模糊、曝光、傾斜與文字大小，但手機照片、掃描檔、白／黑桌、條碼 QR、不同解析度與複雜背景會讓同一個 metric 出現大量 false positive / false negative。</p></div>
-          <div class="blk"><div class="k">代表性 Debug</div><p>Skew 第一版以 ±30° 過濾 Hough line，導致 45°／60° 文件出現盲區；改成 orthogonal-axis mapping 後，真實手機照片仍漏判，進一步定位到高解析度下 Hough threshold 過高、根本抓不到線，之後改為階梯式 threshold 與 robust aggregation。</p></div>
-          <figure class="diagram">
-            <svg viewBox="0 0 640 132" role="img" aria-label="Image Quality Checker architecture evolution">
-              <defs><marker id="arq" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
-              <rect x="16" y="46" width="138" height="42" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="85" y="64" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">V1：固定規則</text><text x="85" y="79" text-anchor="middle" font-size="9" fill="#475569">threshold / hard crop</text>
-              <line x1="154" y1="67" x2="214" y2="67" stroke="#0284c7" stroke-width="2" marker-end="url(#arq)"/>
-              <rect x="218" y="38" width="168" height="58" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="302" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Failure Analysis</text><text x="302" y="75" text-anchor="middle" font-size="9" fill="#475569">real + synthetic + regression</text>
-              <line x1="386" y1="67" x2="446" y2="67" stroke="#0284c7" stroke-width="2" marker-end="url(#arq)"/>
-              <rect x="450" y="38" width="174" height="58" rx="9" fill="#0284c7"/><text x="537" y="59" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">V3：Soft Mask</text><text x="537" y="75" text-anchor="middle" font-size="9" fill="#e0f2fe">per-metric ROI / abstain</text>
-            </svg>
-            <figcaption>從脆弱的單一裁切決策，演進成各品質指標各自使用 ROI 的架構</figcaption>
-          </figure>
-          <div class="blk"><div class="k">架構演進</div><p>後續發現更大的問題不是某個 threshold，而是「所有品質指標共用同一個硬裁切結果」本身就很脆弱：相近文件可能因些微差異在不同裁切比例間跳動，連帶讓 blur、skew、exposure 的結果一起漂移。最後改成 soft mask，由 blur、skew、text-size 各自使用 ROI 過濾背景，不再讓單一裁切決策支配全部指標。</p></div>
-          <div class="blk"><div class="k">目前涵蓋</div><ul><li>Resolution、Blur、Brightness、Glare、Underexposure、Skew、Text size、Content size。</li><li>真實影像 + 合成資料測試、threshold analysis、debug metrics、regression testing。</li><li>保留已知限制與未解 edge cases，不把「目前可用」寫成「問題全部解完」。</li></ul></div>
-          <div class="tags"><span class="tag">OpenCV</span><span class="tag">Failure Analysis</span><span class="tag">Regression Testing</span><span class="tag">Soft Mask</span></div>
-        </div></div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="card">
-        <div class="card-head" onclick="toggleCard(this)">
-          <div class="card-idx">4</div>
-          <div class="ht"><h3>Telegram 產品 Bug 回報機器人</h3><div class="one">把「傳訊息給工程師」這個分散的人工作業，改成低摩擦的事件驅動 workflow：回報、歸檔、分派、狀態同步、結案回拋都在既有 Telegram 使用習慣內完成。</div></div>
-          <div class="chev">▾</div>
-        </div>
-        <div class="card-body"><div class="card-inner">
-          <div class="blk"><div class="k">痛點</div><p>測試人員回報 Bug 散落在訊息、信件與表格之間；工程端追蹤狀態、回拋通知給原回報者的環節經常斷裂。</p></div>
-          <div class="blk"><div class="k">方案</div><p>用有限狀態機（FSM）做引導式填單，逐步收集回報；自動依產品分流寫入 Google Sheet、圖片上傳圖床、推播工程群組並附上該產品負責人；工程端更新狀態後，由 Apps Script 監聽變更、自動回拋通知原回報者，形成完整閉環。</p></div>
-          <div class="blk"><div class="k">產品設計取捨</div><p>公司本來就常用 Telegram，因此沒有另外打造一套新的回報 App。目標是讓使用者從「傳訊息給工程師」變成「傳訊息給 Bot」，而不是要求所有人再學一套新的 ticket system；真正的難點也不是模型，而是把散亂的人工作業整理成穩定、低摩擦、可追蹤的流程。</p></div>
-          <figure class="diagram">
-            <svg viewBox="0 0 640 185" role="img" aria-label="回報閉環流程">
-              <defs><marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
-              <rect x="20" y="22" width="120" height="46" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="80" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">測試人員</text><text x="80" y="59" text-anchor="middle" font-size="9" fill="#475569">Telegram 填單</text>
-              <line x1="140" y1="45" x2="186" y2="45" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
-              <rect x="190" y="22" width="120" height="46" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="250" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Bot（FSM）</text><text x="250" y="59" text-anchor="middle" font-size="9" fill="#475569">引導式・分流</text>
-              <line x1="310" y1="36" x2="356" y2="30" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
-              <line x1="310" y1="54" x2="356" y2="60" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
-              <rect x="360" y="14" width="130" height="26" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="1.6"/><text x="425" y="31" text-anchor="middle" font-size="10" fill="#0f172a">圖片 → ImgBB</text>
-              <rect x="360" y="50" width="130" height="26" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="1.6"/><text x="425" y="67" text-anchor="middle" font-size="10" fill="#0f172a">寫入 Google Sheet</text>
-              <line x1="490" y1="45" x2="528" y2="45" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
-              <rect x="510" y="22" width="120" height="46" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="570" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">工程群組</text><text x="570" y="59" text-anchor="middle" font-size="9" fill="#475569">通知 + 負責人</text>
-              <path d="M570,68 L570,128 L80,128 L80,72" fill="none" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ar3)"/>
-              <rect x="210" y="116" width="220" height="24" rx="6" fill="#f0f9ff"/><text x="320" y="132" text-anchor="middle" font-size="9.5" fill="#0369a1">Apps Script 監聽結案 → 自動回拋通知原回報者</text>
-            </svg>
-            <figcaption>回報 → 歸檔 → 通知 → 結案回拋</figcaption>
-          </figure>
-          <div class="blk"><div class="k">關鍵技術決策</div><ul>
-            <li><b>config-driven 設計</b>：產品、模塊、負責人、白名單都放在設定分頁，新增產品免改程式碼，並支援 <code>/reload</code> 不重啟熱重載。</li>
-            <li><b>權限取捨</b>：圖片因雲端硬碟權限政策卡關改用圖床；通知腳本因簡單觸發器無權呼叫外部請求，改用安裝式觸發器。</li>
-            <li><b>關注點分離（SoC）</b>：程式依設定、資料模型、服務與對話流程分為四層，維護時定位明確。</li>
-          </ul></div>
-          <div class="blk"><div class="k">商業成果</div><p>一個完整可交接的產品：附系統架構圖、維護手冊、從零建置教學、v1→v2 演進紀錄與已知限制清單，接手者能直接上手。</p></div>
-          <div class="blk"><div class="k">Future</div><p>未來可讓使用者直接用自然語言描述問題，再由 LLM 擷取產品、問題描述、重現方式與使用情境，自動填入既有 workflow；目前尚未實作。</p></div>
-          <div class="tags"><span class="tag">FSM</span><span class="tag">自動化</span><span class="tag">Google Sheet / Apps Script</span><span class="tag">可交接產品</span></div>
-          <a class="src-link" data-repo-card="tgbot" href="#">原始碼 ▸</a>
         </div></div>
       </div>
 
@@ -453,47 +453,13 @@
       <div class="card">
         <div class="card-head" onclick="toggleCard(this)">
           <div class="card-idx">5</div>
-          <div class="ht"><h3>產線螺絲組裝防錯系統</h3><div class="one">8 個工作天全流程獨立交付的產線防錯 PoC，並沉澱出一套可複用於工業偵錯的 FSM 範例與 SOP。</div></div>
-          <div class="chev">▾</div>
-        </div>
-        <div class="card-body"><div class="card-inner">
-          <div class="blk"><div class="k">痛點</div><p>螺絲組裝目前沒有自動檢查機制，一旦漏放或錯放，整個料盤就報廢，是良率與成本的痛點；而實體廠房相機會物理位移、手部會遮擋料盤，固定座標的判定方式很快就會失準。導入 AI 與自動化偵錯，可即時攔截錯誤、提升良率並降低報廢花費。</p></div>
-          <div class="blk"><div class="k">方案</div><p>自訓 YOLO 偵測料盤上的螺絲、另訓手部物件偵測模型，搭配三階段狀態機（等待取料 → 進入料盤 → 離開結算），比對「取了哪個料盒」與「料盤實際多了哪個孔位的螺絲」是否一致，不一致即報警。</p></div>
-          <figure class="diagram">
-            <svg viewBox="0 0 640 120" role="img" aria-label="三階段狀態機">
-              <defs><marker id="ar4" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
-              <rect x="20" y="42" width="150" height="48" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="95" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 1 等待取料</text><text x="95" y="79" text-anchor="middle" font-size="9.5" fill="#475569">手在料盒停留</text>
-              <text x="196" y="58" text-anchor="middle" font-size="8.5" fill="#0284c7">停留 &gt; 門檻</text>
-              <line x1="170" y1="66" x2="222" y2="66" stroke="#0284c7" stroke-width="2" marker-end="url(#ar4)"/>
-              <rect x="226" y="42" width="150" height="48" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="301" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 2 進入料盤</text><text x="301" y="79" text-anchor="middle" font-size="9.5" fill="#475569">手入料盤區</text>
-              <text x="402" y="58" text-anchor="middle" font-size="8.5" fill="#0284c7">手離開料盤</text>
-              <line x1="376" y1="66" x2="428" y2="66" stroke="#0284c7" stroke-width="2" marker-end="url(#ar4)"/>
-              <rect x="432" y="42" width="186" height="48" rx="10" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="525" y="63" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">STAGE 3 離開結算</text><text x="525" y="79" text-anchor="middle" font-size="9.5" fill="#475569">取料盒 vs 新增孔位比對</text>
-              <path d="M525,90 C525,108 95,108 95,92" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#ar4)"/>
-              <text x="310" y="115" text-anchor="middle" font-size="9" fill="#94a3b8">結算後重置；相位相關性對齊還原料盤座標</text>
-            </svg>
-            <figcaption>三階段狀態機，標註各狀態切換條件</figcaption>
-          </figure>
-          <div class="blk"><div class="k">關鍵技術決策</div><ul>
-            <li>用相位相關性（phase correlation）計算料盤的物理位移，把當前偵測座標還原回基準座標系再比對孔位，解決相機位移問題。</li>
-            <li>手部模型初版只標了料盤上的手，導致拿料盒時偵測不到；重新補標「無手／拿料」情境後重訓修正。</li>
-            <li>同一套狀態機方法論後續複用到另一條 PCB 板產線（雙電子圍籬），驗證了可移植性。</li>
-          </ul></div>
-          <div class="blk"><div class="k">商業成果</div><p>全流程獨立交付：從客戶提供的實際組裝影片出發，轉影格、裁切料盤，標記並訓練判斷孔位是否有螺絲的 YOLO，再標記並訓練偵測手部的 YOLO，最後串接狀態機完成防錯系統；約 650 筆資料訓練、模型表現良好。</p></div>
-          <div class="tags"><span class="tag">YOLO</span><span class="tag">狀態機</span><span class="tag">相位相關性對齊</span><span class="tag">邊緣運算</span></div>
-        </div></div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="card">
-        <div class="card-head" onclick="toggleCard(this)">
-          <div class="card-idx">6</div>
           <div class="ht"><h3>CAD 工業圖檔版本差異比對</h3><div class="one">把百萬級工業圖檔轉成可比對的結構化資料，用幾何指紋 + 集合運算 4 分鐘找出改版差異。</div></div>
           <div class="chev">▾</div>
         </div>
         <div class="card-body"><div class="card-inner">
-          <div class="blk"><div class="k">痛點</div><p>工程圖改版後需要逐版檢核差異。AutoCAD 雖內建版本比對功能，但面對肥大的工程圖檔速度極慢；檔案又大到無法直接餵給 LLM 或即時渲染比對，改版檢核因此成為效率瓶頸。</p></div>
+          <div class="blk"><div class="k">問題</div><p>工程圖改版後需要逐版檢核差異。AutoCAD 雖內建版本比對功能，但面對肥大的工程圖檔速度極慢；檔案又大到無法直接餵給 LLM 或即時渲染比對，改版檢核因此成為效率瓶頸。</p></div>
           <div class="blk"><div class="k">方案</div><p>自寫 dwg→dxf→csv 轉檔管線，用 ezdxf 把巢狀圖塊「炸開」、曲線離散化、多段線拆解，壓平成關聯式表格；再為每個物件建立幾何指紋（Hash），用集合運算算出新增、刪除、不變，最後以紅綠對比圖視覺化。</p></div>
+          <div class="blk"><div class="k">我的角色</div><p>負責轉檔管線、幾何指紋比對與效能除錯。</p></div>
           <figure class="diagram">
             <svg viewBox="0 0 640 130" role="img" aria-label="轉檔管線與集合運算">
               <defs><marker id="ar5" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
@@ -517,22 +483,23 @@
             <li>指紋座標取小數點後四位，消除浮點誤差造成的假差異。</li>
             <li>釐清解析套件對不同物件型別的迭代邏輯不同（曾導致 114 萬物件只抓到 6 個的坑）。</li>
           </ul></div>
-          <div class="blk"><div class="k">商業成果</div><p>4 分鐘內解析 1,538 萬個幾何物件、捕獲率 99.7%、全程無記憶體溢出；大幅縮減人工比對時間（估計值，基於人工比對流程分析）。</p></div>
+          <div class="blk"><div class="k">結果</div><p>4 分鐘內解析 1,538 萬個幾何物件、捕獲率 99.7%、全程無記憶體溢出；取代人工逐版比對。</p></div>
           <div class="tags"><span class="tag">CAD / DXF</span><span class="tag">資料工程</span><span class="tag">Hash 比對</span><span class="tag">效能</span></div>
           <p class="note">客戶名稱依保密原則匿名。</p>
         </div></div>
       </div>
 
-      <!-- Card 7 -->
+      <!-- Card 6 -->
       <div class="card">
         <div class="card-head" onclick="toggleCard(this)">
-          <div class="card-idx">7</div>
+          <div class="card-idx">6</div>
           <div class="ht"><h3>Document AI — 小模型 OCR 的輸出設計與能力邊界</h3><div class="one">針對文檔、名片、表格、發票與複雜版面，測試 Markdown／HTML／JSON／純文字等輸出策略，找出小模型在結構完整度、輸出長度與 downstream parsing 之間可接受的平衡。</div></div>
           <div class="chev">▾</div>
         </div>
         <div class="card-body"><div class="card-inner">
-          <div class="blk"><div class="k">痛點</div><p>企業把紙本文件電子化時，發票、名片、表格這類文件版式雜亂、難以自動解析，往往得人工逐筆 key in，耗時又容易出錯。</p></div>
+          <div class="blk"><div class="k">問題</div><p>企業把紙本文件電子化時，發票、名片、表格這類文件版式雜亂、難以自動解析，往往得人工逐筆 key in，耗時又容易出錯。</p></div>
           <div class="blk"><div class="k">方案</div><p>針對文檔、名片、表格、發票四類，順應模型天性只做「順勢轉錄」，各自設計極簡提示詞與最適輸出格式（文檔用 Markdown+HTML 表格+LaTeX、名片用扁平 JSON、表格用 HTML、發票用 JSON 或純文字雙方案），並撰寫後端交接規格。</p></div>
+          <div class="blk"><div class="k">我的角色</div><p>負責四類文件的提示詞與輸出格式設計，以及後端交接規格。</p></div>
           <figure class="diagram">
             <svg viewBox="0 0 640 124" role="img" aria-label="四類文件輸出格式對照">
               <rect x="14" y="46" width="96" height="34" rx="8" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.6"/><text x="62" y="67" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">四類文件</text>
@@ -555,8 +522,48 @@
             <li>複雜財報表格會讓小模型崩潰，提出由後端先用 OpenCV 智慧裁切（找行距）再餵模型的策略。</li>
             <li>加上防呆字串攔截，避免模型回傳的固定錯誤訊息讓後端崩潰。</li>
           </ul></div>
-          <div class="blk"><div class="k">商業成果</div><p>交付一套後端可直接載入解析的穩定格式與規格，讓資料不需人工干預就能進資料庫。以發票報帳為例，過去要在財務系統人工填單，現在上傳發票即自動提取關鍵欄位；名片則能幫業務快速建立聯絡簿，不怕名片遺失。歷經五十多版提示詞迭代收斂。</p></div>
+          <div class="blk"><div class="k">結果</div><p>交付後端可直接解析的穩定輸出格式與規格，歷經五十多版提示詞迭代收斂。應用情境包含發票報帳欄位擷取與名片建檔。</p></div>
           <div class="tags"><span class="tag">提示詞工程</span><span class="tag">OCR</span><span class="tag">JSON Schema</span><span class="tag">後端交接</span></div>
+        </div></div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="card">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-idx">7</div>
+          <div class="ht"><h3>Telegram 產品 Bug 回報機器人</h3><div class="one">把「傳訊息給工程師」這個分散的人工作業，改成低摩擦的事件驅動 workflow：回報、歸檔、分派、狀態同步、結案回拋都在既有 Telegram 使用習慣內完成。</div></div>
+          <div class="chev">▾</div>
+        </div>
+        <div class="card-body"><div class="card-inner">
+          <div class="blk"><div class="k">問題</div><p>測試人員回報 Bug 散落在訊息、信件與表格之間；工程端追蹤狀態、回拋通知給原回報者的環節經常斷裂。</p></div>
+          <div class="blk"><div class="k">方案</div><p>用有限狀態機（FSM）做引導式填單，逐步收集回報；自動依產品分流寫入 Google Sheet、圖片上傳圖床、推播工程群組並附上該產品負責人；工程端更新狀態後，由 Apps Script 監聽變更、自動回拋通知原回報者，形成完整閉環。</p></div>
+          <div class="blk"><div class="k">我的角色</div><p>負責 FSM 對話流程、Google Sheet／Apps Script 整合與交接文件。</p></div>
+          <div class="blk"><div class="k">產品設計取捨</div><p>公司本來就常用 Telegram，因此沒有另外打造一套新的回報 App。使用者從「傳訊息給工程師」改成「傳訊息給 Bot」，不用另學 ticket system；技術重點在把分散的人工作業整理成穩定、可追蹤的流程。</p></div>
+          <figure class="diagram">
+            <svg viewBox="0 0 640 185" role="img" aria-label="回報閉環流程">
+              <defs><marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
+              <rect x="20" y="22" width="120" height="46" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="80" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">測試人員</text><text x="80" y="59" text-anchor="middle" font-size="9" fill="#475569">Telegram 填單</text>
+              <line x1="140" y1="45" x2="186" y2="45" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <rect x="190" y="22" width="120" height="46" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="250" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Bot（FSM）</text><text x="250" y="59" text-anchor="middle" font-size="9" fill="#475569">引導式・分流</text>
+              <line x1="310" y1="36" x2="356" y2="30" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <line x1="310" y1="54" x2="356" y2="60" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <rect x="360" y="14" width="130" height="26" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="1.6"/><text x="425" y="31" text-anchor="middle" font-size="10" fill="#0f172a">圖片 → ImgBB</text>
+              <rect x="360" y="50" width="130" height="26" rx="8" fill="#fff" stroke="#0ea5e9" stroke-width="1.6"/><text x="425" y="67" text-anchor="middle" font-size="10" fill="#0f172a">寫入 Google Sheet</text>
+              <line x1="490" y1="45" x2="528" y2="45" stroke="#0284c7" stroke-width="2" marker-end="url(#ar3)"/>
+              <rect x="510" y="22" width="120" height="46" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="570" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">工程群組</text><text x="570" y="59" text-anchor="middle" font-size="9" fill="#475569">通知 + 負責人</text>
+              <path d="M570,68 L570,128 L80,128 L80,72" fill="none" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#ar3)"/>
+              <rect x="210" y="116" width="220" height="24" rx="6" fill="#f0f9ff"/><text x="320" y="132" text-anchor="middle" font-size="9.5" fill="#0369a1">Apps Script 監聽結案 → 自動回拋通知原回報者</text>
+            </svg>
+            <figcaption>回報 → 歸檔 → 通知 → 結案回拋</figcaption>
+          </figure>
+          <div class="blk"><div class="k">關鍵技術決策</div><ul>
+            <li><b>config-driven 設計</b>：產品、模塊、負責人、白名單都放在設定分頁，新增產品免改程式碼，並支援 <code>/reload</code> 不重啟熱重載。</li>
+            <li><b>權限取捨</b>：圖片因雲端硬碟權限政策卡關改用圖床；通知腳本因簡單觸發器無權呼叫外部請求，改用安裝式觸發器。</li>
+            <li><b>關注點分離（SoC）</b>：程式依設定、資料模型、服務與對話流程分為四層，維護時定位明確。</li>
+          </ul></div>
+          <div class="blk"><div class="k">結果</div><p>一個完整可交接的產品：附系統架構圖、維護手冊、從零建置教學、v1→v2 演進紀錄與已知限制清單，接手者能直接上手。</p></div>
+                    <div class="tags"><span class="tag">FSM</span><span class="tag">自動化</span><span class="tag">Google Sheet / Apps Script</span><span class="tag">可交接產品</span></div>
+          <a class="src-link" data-repo-card="tgbot" href="#">原始碼 ▸</a>
         </div></div>
       </div>
 
@@ -564,7 +571,7 @@
 
     <!-- PILLAR: BUSINESS -->
     <div class="pillar" id="pillar-biz">
-      <p class="sec-lead" style="margin-top:-12px">工程證明把東西做出來的能力；而商業思維，支持我在動手之前先把問題、市場與可行性想清楚——這是企管背景帶來的視角。</p>
+      <p class="sec-lead" style="margin-top:-12px">提案與競賽作品：以結構化分析定義問題、評估可行性並設計方案。</p>
 
       <!-- Biz A -->
       <div class="card">
@@ -575,7 +582,7 @@
         </div>
         <div class="card-body"><div class="card-inner">
           <div class="blk"><div class="k">背景</div><p>FunNow 集團橫跨 7 個市場（泰、馬、港、菲、台、星、日），總部與在地團隊的資訊與決策仰賴大量人工流程，造成跨團隊執行瓶頸。</p></div>
-          <div class="blk"><div class="k">診斷</div><p>真正的瓶頸不是「資訊流」，而是 Team Lead 被結構性地當成「集團的人工彙整引擎」，且沒有可擴展的替代方案——它不會卡住日常執行，卻會在頂層悄悄扭曲策略決策。</p></div>
+          <div class="blk"><div class="k">診斷</div><p>核心瓶頸在 Team Lead 被結構性地當成「集團的人工彙整引擎」，且沒有可擴展的替代方案——它不會卡住日常執行，卻會在頂層悄悄扭曲策略決策。</p></div>
           <div class="blk"><div class="k">提案主張</div><p>提出一套結構化的優化框架，並設計 3 個可量測 KPI，量化決策速度、資源優化與人工工時的改善。</p></div>
           <div class="blk"><div class="k">為何收錄</div><p>這份作業展現的是結構化思考，以及「先思考、再執行」的工作方式。</p></div>
           <div class="tags"><span class="tag">營運策略</span><span class="tag">瓶頸診斷</span><span class="tag">KPI 設計</span><span class="tag">跨國</span></div>
@@ -596,128 +603,66 @@
             <li>智慧媒合與最短運輸路徑：地圖視覺化。</li>
             <li>語音／文字一句話完成電子聯單：自動串接 GPS。</li>
           </ul></div>
-          <div class="blk"><div class="k">角色分工</div><p>概念發想、可行性分析（供需確認、現行機制對比、法規容許性查證）與三模組的解方規劃由本人主導；技術實作則由團隊資工系成員負責——對應的正是商業與可行性評估的核心職能。</p></div>
+          <div class="blk"><div class="k">角色分工</div><p>概念發想、可行性分析（供需確認、現行機制對比、法規容許性查證）與三模組的解方規劃由本人主導；技術實作由團隊資工系成員負責。</p></div>
           <div class="tags"><span class="tag">市場洞察</span><span class="tag">政策分析</span><span class="tag">可行性評估</span><span class="tag">方案規劃</span></div>
           <p class="note">2026 全國大專院校永續×循環經濟×AI 創新提案競賽參賽作品。</p>
         </div></div>
-      </div>
-
-      <!-- ROI band -->
-      <div class="roi-band">
-        <h3>可量化的成效對比</h3>
-        <div class="roi-grid">
-          <div class="roi-item"><div class="rk">文件數位化</div><div class="rv">公部門文件 OCR 實測：純文字生成僅秒級，相較人工整理動輒數十分鐘（例：登記表 9 秒 vs 人工約 17 分鐘）。</div></div>
-          <div class="roi-item"><div class="rk">工業圖檔比對</div><div class="rv">自動化解析大幅縮減人工逐項比對時間（估計值，基於人工比對流程分析）。</div></div>
-          <div class="roi-item"><div class="rk">影像稽核</div><div class="rv">把單筆交易的 LLM 推論成本壓到約 TWD 0.0035。</div></div>
-        </div>
       </div>
 
     </div><!-- /pillar-biz -->
   </div>
 </section>
 
-<!-- PROJECT THREADS -->
-<section id="threads">
-  <div class="wrap">
-    <h2 class="sec-title">專案脈絡 — <span class="accent">從獨立 PoC 到可串接的企業 AI 流程</span></h2>
-    <p class="sec-lead">很多專案原本是分開發生的，但回頭整理後，它們其實都在處理同一類問題：企業如何把不乾淨的 input，穩定地送進 AI，再讓結果可以驗證、追蹤與交接。</p>
-    <div class="thread-grid">
-      <div class="thread-card">
-        <h3>這些專案怎麼逐漸串起來</h3>
-        <p>合約分析最初只是「文件 → LLM → Dashboard」；實作後開始遇到 timeout、引用錯誤與 grounding 問題，因此加入模型評測、n-gram 原文校驗，並自行延伸 RAG prototype。</p>
-        <p>Document AI 的經驗又補上另一個缺口：企業輸入不一定是乾淨文字，也可能是掃描 PDF、圖片、複雜表格或非規則版面。於是 OCR 品質檢核、文件解析與 output schema 變成上游的重要環節。</p>
-        <p>Telegram Bug Bot 則讓我從另一個角度理解 workflow：真正有價值的不只是模型回覆，而是 event、state、notification、ownership 與 human feedback 能不能形成完整閉環。</p>
-      </div>
-      <div class="thread-card">
-        <h3>可能的整合架構</h3>
-        <figure class="diagram" style="margin-top:10px">
-          <svg viewBox="0 0 460 330" role="img" aria-label="enterprise AI workflow thread">
-            <defs><marker id="art" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#0284c7"/></marker></defs>
-            <g font-size="11" font-weight="700" fill="#0f172a">
-              <rect x="110" y="10" width="240" height="38" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="230" y="34" text-anchor="middle">Input / 文件 / 圖片 / 訊息</text>
-              <line x1="230" y1="48" x2="230" y2="74" stroke="#0284c7" stroke-width="2" marker-end="url(#art)"/>
-              <rect x="110" y="78" width="240" height="38" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="230" y="102" text-anchor="middle">Parse / Quality Gate / OCR</text>
-              <line x1="230" y1="116" x2="230" y2="142" stroke="#0284c7" stroke-width="2" marker-end="url(#art)"/>
-              <rect x="110" y="146" width="240" height="38" rx="9" fill="#fff" stroke="#0ea5e9" stroke-width="2"/><text x="230" y="170" text-anchor="middle">Structure / Retrieval / LLM</text>
-              <line x1="230" y1="184" x2="230" y2="210" stroke="#0284c7" stroke-width="2" marker-end="url(#art)"/>
-              <rect x="110" y="214" width="240" height="38" rx="9" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/><text x="230" y="238" text-anchor="middle">Deterministic Validation</text>
-              <line x1="230" y1="252" x2="230" y2="278" stroke="#0284c7" stroke-width="2" marker-end="url(#art)"/>
-              <rect x="110" y="282" width="240" height="38" rx="9" fill="#0284c7"/><text x="230" y="306" text-anchor="middle" fill="#fff">Human Review / Workflow</text>
-            </g>
-          </svg>
-          <figcaption>這是跨專案整理出的架構脈絡，不代表目前已整合成單一 production system。</figcaption>
-        </figure>
-      </div>
-    </div>
-    <div class="status-grid">
-      <div class="status-box">
-        <h3>Already Built / 有直接實作</h3>
-        <ul class="thread-list"><li>合約風險分析 Demo：模型評測、全文 vs chunking、n-gram 原文校驗。</li><li>RAG prototype：法律知識 grounding 的自行延伸。</li><li>Document AI：小模型 OCR、多格式輸出與 downstream 規格。</li><li>Image Quality Checker：OCR 前品質 gate、failure analysis 與 soft-mask architecture。</li><li>Telegram Workflow：FSM、歸檔、分派、狀態同步與回拋通知。</li></ul>
-      </div>
-      <div class="status-box future">
-        <h3>Future Architecture / 尚未實作</h3>
-        <ul class="thread-list"><li>Shared mailbox / mail trigger 自動啟動文件流程。</li><li>歷史合約 embedding / cosine similarity 第一層 filter。</li><li>手機拍照 → 品質檢核 → OCR → RAG / LLM → 法務審查的完整 pipeline。</li><li>更完整的 risk gate、低風險流程與自動通知。</li><li>Bug Bot 加入 LLM 自然語言欄位抽取。</li></ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
-    <h2 class="sec-title">能力 — <span class="accent">由專案累積出的實作範圍</span></h2>
-    <p class="sec-lead">不以「精通／熟悉」自評，而是直接列出目前有實際專案或驗證經驗的能力範圍。</p>
+    <h2 class="sec-title">能力 — <span class="accent">依專案整理的技術範圍</span></h2>
+    <p class="sec-lead">每項能力都對應到上方的技術專案。</p>
     <div class="skill-grid">
       <div class="skill-cat core">
-        <h3>Applied AI & Model Integration <span class="badge">核心</span></h3>
-        <div class="skill-row"><span>LLM / VLM Application & Integration</span></div>
+        <h3>AI Model Integration <span class="badge">核心</span></h3>
+        <div class="skill-row"><span>VLM Application（Qwen-VL、Gemini）</span></div>
+        <div class="skill-row"><span>LLM Integration / Structured Output</span></div>
         <div class="skill-row"><span>Model Evaluation / Selection</span></div>
-        <div class="skill-row"><span>Prompt Design / Structured Output</span></div>
-        <div class="skill-row"><span>RAG Prototype / Grounding</span></div>
-        <div class="skill-row"><span>Cost / Latency Trade-off</span></div>
-      </div>
-      <div class="skill-cat">
-        <h3>Computer Vision & Document AI</h3>
-        <div class="skill-row"><span>YOLO Training / Inference</span></div>
-        <div class="skill-row"><span>OpenCV / ROI / Geometry</span></div>
-        <div class="skill-row"><span>Image Quality Analysis</span></div>
-        <div class="skill-row"><span>OCR / Document Workflow</span></div>
-        <div class="skill-row"><span>CAD / DXF Parsing</span></div>
-      </div>
-      <div class="skill-cat">
-        <h3>Workflow & System Integration</h3>
-        <div class="skill-row"><span>Python</span></div>
-        <div class="skill-row"><span>FSM / Event-driven Workflow</span></div>
-        <div class="skill-row"><span>API Integration / Local Proxy</span></div>
-        <div class="skill-row"><span>JSON Schema / Technical Spec</span></div>
-        <div class="skill-row"><span>Telegram / Google Sheet / Apps Script</span></div>
-      </div>
-      <div class="skill-cat">
-        <h3>Testing & Problem Solving</h3>
-        <div class="skill-row"><span>Failure Analysis / Root-cause Diagnosis</span></div>
-        <div class="skill-row"><span>Benchmark Design / Regression Testing</span></div>
-        <div class="skill-row"><span>Requirement Decomposition</span></div>
-        <div class="skill-row"><span>AI-assisted Development & Validation</span></div>
-        <div class="skill-row"><span>Technical Documentation</span></div>
+        <div class="skill-row"><span>Prompt Design</span></div>
+        <div class="skill-row"><span>Latency / Cost Optimization</span></div>
       </div>
       <div class="skill-cat core">
-        <h3>Business & Product Thinking <span class="badge">差異化</span></h3>
-        <div class="skill-row"><span>Problem Framing / Process Design</span></div>
-        <div class="skill-row"><span>ROI / Cost / Efficiency Analysis</span></div>
-        <div class="skill-row"><span>User Adoption / Workflow Friction</span></div>
-        <div class="skill-row"><span>Cross-functional / Cross-market Collaboration</span></div>
+        <h3>Testing & Reliability <span class="badge">核心</span></h3>
+        <div class="skill-row"><span>Evaluation Dataset / Benchmark Design</span></div>
+        <div class="skill-row"><span>Failure Analysis / Root-cause Diagnosis</span></div>
+        <div class="skill-row"><span>Regression / Contract Testing</span></div>
+        <div class="skill-row"><span>AI-assisted Development & Validation</span></div>
       </div>
       <div class="skill-cat">
-        <h3>Data & Analytics</h3>
+        <h3>Computer Vision</h3>
+        <div class="skill-row"><span>YOLO Training / Inference</span></div>
+        <div class="skill-row"><span>OpenCV / ROI / Image Alignment</span></div>
+        <div class="skill-row"><span>Image Quality Analysis / OCR</span></div>
+      </div>
+      <div class="skill-cat">
+        <h3>AI Services & Integration</h3>
+        <div class="skill-row"><span>Python</span></div>
+        <div class="skill-row"><span>HTTP API / JSON Schema</span></div>
+        <div class="skill-row"><span>FSM / Event-driven Logic</span></div>
+      </div>
+      <div class="skill-cat">
+        <h3>Data</h3>
         <div class="skill-row"><span>Data Cleaning / Mapping / Quality Control</span></div>
-        <div class="skill-row"><span>GA / Ahrefs</span></div>
-        <div class="skill-row"><span>Looker Studio / Power BI</span></div>
+        <div class="skill-row"><span>CAD / DXF Parsing</span></div>
+        <div class="skill-row"><span>Technical Documentation</span></div>
+      </div>
+      <div class="skill-cat">
+        <h3>Requirements</h3>
+        <div class="skill-row"><span>Requirement Decomposition</span></div>
+        <div class="skill-row"><span>Acceptance Criteria / Scenario Definition</span></div>
+        <div class="skill-row"><span>Cross-functional Collaboration</span></div>
       </div>
     </div>
     <div class="certs">
+      <div class="cert"><div class="ci">N</div><div><div class="ct">NVIDIA DLI — Rapid Application Development with LLMs</div><div class="cs">Certificate of Competency・2026/05</div></div></div>
       <div class="cert"><div class="ci">T</div><div><div class="ct">多益 TOEIC 815</div><div class="cs">英語溝通能力</div></div></div>
       <div class="cert"><div class="ci">L</div><div><div class="ct">領思 Linguaskill B2</div><div class="cs">CEFR B2</div></div></div>
-      <div class="cert"><div class="ci">N</div><div><div class="ct">NVIDIA DLI — Rapid Application Development with LLMs</div><div class="cs">Certificate of Competency・2026/05</div></div></div>
     </div>
   </div>
 </section>
@@ -725,22 +670,22 @@
 <!-- EXPERIENCE -->
 <section id="exp">
   <div class="wrap">
-    <h2 class="sec-title">經歷 — <span class="accent">行銷 → 數據 → AI 的跨域累積</span></h2>
+    <h2 class="sec-title">經歷</h2>
     <div class="timeline">
       <div class="tl-item">
         <div class="role">Leda Tech ・ AI Engineer Intern</div>
         <div class="meta">2025/09 – 2026/06｜桃園・Hybrid</div>
-        <p>參與並完成多個 Applied AI PoC，涵蓋 Computer Vision、LLM / VLM、Document AI、workflow automation、模型評測與 API / output spec。這段經歷也是本作品集多數工程專案的主要來源。</p>
+        <p>完成 7 個企業 AI 專案，涵蓋 Computer Vision、VLM、LLM、Document AI、模型評測與 API 規格；本頁技術專案的主要來源。</p>
       </div>
       <div class="tl-item">
         <div class="role">Patients Force ・ Data Analyst Intern</div>
         <div class="meta">2025/06 – 2025/09｜台北</div>
-        <p>負責高敏感、高複雜度數據的清洗與標籤映射，梳理雜亂的原始商業數據，為後續事業單位的決策提供可靠的資料基底。</p>
+        <p>負責高敏感、高複雜度資料的清洗、映射與品質控管，建立後續分析使用的資料基礎。</p>
       </div>
       <div class="tl-item">
         <div class="role">Whoscall ・ Digital Marketing Intern</div>
         <div class="meta">2024/07 – 2025/03｜台北</div>
-        <p>協調台、泰、日、港澳等多國渠道的素材製作與時程，於雙 11 檔期推動專案落地；用 GA、Ahrefs 追蹤成效，以 Looker Studio、PowerBI 建立視覺化儀表板，把龐雜數據轉化為商業決策。</p>
+        <p>跨市場素材與時程協調；以 GA、Looker Studio、Power BI 追蹤與呈現成效。</p>
       </div>
     </div>
   </div>
@@ -751,7 +696,7 @@
   <div class="wrap">
     <div class="about-card">
       <h2>聯絡我</h2>
-      <p>如果您對這些專案、技術取捨或延伸方向有興趣，歡迎透過 Email 與我聯繫！</p>
+      <p>對這些專案或技術取捨有興趣，歡迎透過 Email 聯繫。</p>
       <div class="contact-row">
         <a href="mailto:sc.chen1013@gmail.com">✉ sc.chen1013@gmail.com</a>
         <a href="#" data-repo>◎ GitHub（待補連結）</a>
@@ -761,7 +706,7 @@
   </div>
 </section>
 
-<footer>© 2026 陳士杰 Jacky Chen ・ 把商業問題，端到端做成可落地的 AI 方案</footer>
+<footer>© 2026 陳士杰 Jacky Chen ・ AI Engineer｜VLM、Computer Vision、LLM</footer>
 <button id="toTop" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
